@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../components/Card'
+import GameContainer from './GameContainer'
 
 class CardContainer extends React.Component{
 
@@ -12,6 +13,7 @@ class CardContainer extends React.Component{
             <div className="card-container">
                 <h1>Card Container</h1>
                 {this.renderCards()}
+                <GameContainer cards={this.props.filteredCards}/>
             </div>
         )
     }
