@@ -3,7 +3,7 @@ body {
 }
 
 .header {
-  margin-top: 20px;
+  margin-top: 1%;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -12,46 +12,72 @@ body {
 .header-logo {
   color: inherit;
   text-decoration: inherit;
-  font-size: 2.3em;
-  margin-left: 11px;
+  font-size: 2.1em;
+  margin-left: 2%;
 }
 
 .header-separator {
   width: 95%;
   border: none;
   height: 2px;
-  margin-top: 2px;
+  margin-top: .5%;
   background-color: black;
 }
 
 .navbar {
   display: flex;
   flex-direction: row;
-  align-items: right;
+  margin-left: 2%;
 }
 
 .navbar-link {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 30px;
+  margin-left: 2%;
   color: inherit;
   text-decoration: inherit;
-  outline: none;
 }
 
 .login-form-container {
-  display: flex;
-  margin: 5%;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
   border: solid;
   border-width: .05em;
-  justify-content: center;
+  padding: 4rem 0px;
 }
 
-.login-form-container, form, p {
+.login-form-container form {
   display: flex;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.login-form-container p {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+}
+
+.main-container {
+  display: flex;
+  margin: 5%;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.category-container {
+  /* flex-grow: 1; */
+}
+
+.card-container {
+  flex-grow: 1;
 }
 
 .game-container {
