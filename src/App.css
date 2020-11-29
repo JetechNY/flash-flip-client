@@ -24,6 +24,15 @@ body {
   background-color: black;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(209, 207, 207);
+  text-align: center;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
