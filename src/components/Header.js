@@ -1,13 +1,21 @@
 import React from 'react'
+import NavBar from './NavBar'
+import LoginForm from './LoginForm'
 
 
 function Header(props) {
 
 
     return (
-        <div className="header">
-            <h1>Flash Flip</h1>
-        </div>
+        <section className="header">
+            <section className="header-logo">
+                <a href="/" className="header-logo">FLASH-FLIP</a>
+            </section>
+            <section className="header-navbar">
+                <hr className="header-seperator" />
+                {props.loggedIn ? <NavBar /> : <LoginForm />}
+            </section>
+        </section>
     )
 
 } 

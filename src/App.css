@@ -1,4 +1,41 @@
 body {
-  border-color: black;
-  border: black;
+  font-family: RobotoThin;
+}
+
+.header {
+  margin-top: 20px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.header-logo {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: 2.3em;
+  margin-left: 11px;
+}
+
+.header-seperator {
+  width: 95%;
+  border: none;
+  height: 2px;
+  margin-top: 2px;
+  background-color: black;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+}
+
+.navbar-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+  color: inherit;
+  text-decoration: inherit;
+  outline: none;
 }

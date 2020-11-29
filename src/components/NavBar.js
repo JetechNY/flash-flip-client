@@ -5,12 +5,11 @@ function NavBar(props) {
 
 
     return (
-        <div className="nav-bar">
-            <h1>NavBar</h1>
-            <a href="">All Categories</a>
-            <a href="">Starred Cards</a>
-            <a href="">Log Out</a>
-        </div>
+        <section className="navbar">
+            <a href="/" className="navbar-link">ALL CATEGORIES</a>
+            <a href="/" className="navbar-link">STARRED CARDS</a>
+            <a href="/" className="navbar-link">LOG OUT</a>
+        </section>
     )
 
 } 
