@@ -12,8 +12,8 @@ function Header(props) {
                 <a href="/" className="header-logo">FLASH-FLIP</a>
             </section>
             <section className="header-navbar">
-                <hr className="header-seperator" />
-                {props.loggedIn ? <NavBar /> : <LoginForm />}
+                <hr className="header-separator" />
+                {props.loggedIn ? <NavBar /> : <LoginForm handleLoginFormSubmit={props.handleLoginFormSubmit}/>}
             </section>
         </section>
     )

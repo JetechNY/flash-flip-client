@@ -24,7 +24,7 @@ class MainContainer extends React.Component {
         return (
             <div className="main-container">
                 <CategoryContainer categories={this.state.categories} handleFilterCategory={this.handleFilterCategory}/>
-                <CardContainer filteredCards={this.state.filteredCards} />
+                {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
             </div>
         )
     }

@@ -16,7 +16,7 @@ class App extends React.Component {
   render () {
     return (
       <section className="App">
-        <Header loggedIn={this.state.loggedIn} />
+        <Header loggedIn={this.state.loggedIn} handleLoginFormSubmit={this.handleLoginFormSubmit} />
         {this.state.loggedIn ? <MainContainer /> : null }        
       </section>
     );

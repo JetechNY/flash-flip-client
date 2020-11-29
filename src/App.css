@@ -16,7 +16,7 @@ body {
   margin-left: 11px;
 }
 
-.header-seperator {
+.header-separator {
   width: 95%;
   border: none;
   height: 2px;
@@ -38,4 +38,29 @@ body {
   color: inherit;
   text-decoration: inherit;
   outline: none;
+}
+
+.login-form-container {
+  display: flex;
+  margin: 5%;
+  border: solid;
+  border-width: .05em;
+  justify-content: center;
+}
+
+.login-form-container, form, p {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.game-container {
+  margin: 5%;
+  border: solid;
+  border-width: .05em;
+}
+
+.timer {
+  border: solid;
+  border-width: .05em;
 }
