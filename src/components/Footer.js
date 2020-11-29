@@ -7,7 +7,7 @@ function Footer(props) {
         <section className="footer">
             <section className="footer-text">
                 <p>created by SunJet Liu + Billy Ott for Flatiron School</p>
-                <p>2020 Mod 4 Project</p>
+                <p>Mod 4 Project</p>
             </section>
         </section>
     )

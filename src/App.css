@@ -26,6 +26,7 @@ body {
 
 .footer {
   position: fixed;
+  font-size: .9em;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -76,26 +77,77 @@ body {
 
 .main-container {
   display: flex;
-  margin: 5%;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   border-style: solid;
   border-width: 1px;
+  padding: 10px;
 }
 
 .category-container {
-  /* flex-grow: 1; */
+  margin-right: 2rem;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
 }
 
 .card-container {
   flex-grow: 1;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
 }
 
 .game-container {
-  margin: 5%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   border: solid;
-  border-width: .05em;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.game-container-left-section {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+
+.game-container-left-section * {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.game-container-right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-container-right-section * {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
 .timer {
   border: solid;
   border-width: .05em;
 }
+
+.game-stats {
+  border: solid;
+  border-width: .05em;
+}
+
+.card {
+  border: solid;
+  border-width: .05em;
+}
+

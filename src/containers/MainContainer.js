@@ -1,6 +1,7 @@
 import React from 'react'
 import CategoryContainer from './CategoryContainer'
 import CardContainer from './CardContainer'
+import GameContainer from './GameContainer'
 
 class MainContainer extends React.Component {
 
@@ -22,10 +23,13 @@ class MainContainer extends React.Component {
 
     render() {
         return (
-            <div className="main-container">
-                <CategoryContainer categories={this.state.categories} handleFilterCategory={this.handleFilterCategory}/>
-                {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
-            </div>
+            <>
+                <div className="main-container">
+                    <CategoryContainer categories={this.state.categories} handleFilterCategory={this.handleFilterCategory}/>
+                    {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
+                </div>
+                {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null}
+            </>
         )
     }
 
