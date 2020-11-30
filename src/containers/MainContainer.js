@@ -9,14 +9,17 @@ class MainContainer extends React.Component {
 
     state = {
         categories: [],
-        filteredCards: [],
-        searchTerm:""
+        filteredCategories: [],
+        filteredCards: []
     }
 
     componentDidMount(){
         fetch('http://localhost:3000/categories')
         .then(response => response.json())
-        .then(categories => this.setState({categories: categories}))
+        .then(categories => this.setState({
+            categories: categories,
+            filteredCategories: categories
+        }))
         .catch(err => console.log(err))
     }
 
@@ -37,29 +40,34 @@ class MainContainer extends React.Component {
         this.setState({filteredCards: filteredCards})
     }
 
-    filteredCategory = () => this.state.categories.filter(cat => cat.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+    filteredCategory = (searchTerm) => this.state.categories.filter(cat => cat.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
-    handleChange = (e) => this.setState({searchTerm: e.target.value})
+    handleChange = (e) => {
+        debugger
+        this.setState({
+            filteredCategories: this.state.categories
+        });
 
-
+        this.setState({
+            filteredCategories: this.filteredCategory(e.target.value)
+        });
+    }
 
     render() {
         return (
             <Container>
                 <div className="main-container">
-                    <CategoryContainer categories={this.state.categories} handleFilterCategory={this.handleFilterCategory}/>
+                    <CategoryContainer categories={this.state.filteredCategories} handleFilterCategory={this.handleFilterCategory}/>
                     <br />
                     <CategoryForm addCategory={this.addCategory} />
                     <br />
-                    <CategorySearch searchTerm={this.state.searchTerm} handleChange={this.handleChange}/>
+                    <CategorySearch handleChange={this.handleChange}/>
                     <br />
                     <CardContainer filteredCards={this.state.filteredCards} />
                 </div>
             </Container>
-
         )
     }
-
 }
 
 export default MainContainer
