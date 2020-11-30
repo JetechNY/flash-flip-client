@@ -5,18 +5,70 @@ import CategoryForm from '../components/CategoryForm'
 
 class CategoryContainer extends React.Component{
 
+    state = {
+        categories: [],
+        filteredCategories: [],
+        showForm: false
+    }
+
+    componentDidMount(){
+        fetch('http://localhost:3000/categories')
+        .then(response => response.json())
+        .then(categories => this.setState({
+            categories: categories,
+            filteredCategories: categories
+        }))
+        .catch(err => console.log(err))
+    }
+
+    addCategory = (categoryObj) => {
+        fetch(`http://localhost:3000/categories`,{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(categoryObj)
+            })
+            .then(r => r.json())
+            .then(data => this.setState({
+                categories: [...this.state.categories, data],
+                filteredCategories: [...this.state.categories, data],
+                showForm: false
+            }))
+      }
+
+
+    handleCategorySearchChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            filteredCategories: this.state.categories
+        });
+
+        this.setState({
+            filteredCategories: this.filteredCategory(e.target.value)
+        });
+    }
+
+    filteredCategory = (searchTerm) => this.state.categories.filter(cat => cat.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
     renderCategories = () => {
-        return this.props.categories.map(category=> <Category key={category.id} category={category} handleFilterCards={this.props.handleFilterCards} />)
+        return this.state.filteredCategories.map(category=> <Category key={category.id} category={category} handleFilterCards={this.props.handleFilterCards} />)
+    }
+
+    showCategoryForm =() => {
+        this.setState(prevState => {
+            return({showForm: !prevState.showForm})
+        })
     }
 
     render () {
         return (
             <div className="category-container">
                 <h1>Categories</h1>
-                <CategorySearch handleCategorySearchChange={this.props.handleCategorySearchChange}/>
-                <CategoryForm addCategory={this.props.addCategory} />
-                {this.renderCategories()}
+                <CategorySearch handleCategorySearchChange={this.handleCategorySearchChange}/>
+                <button onClick={this.showCategoryForm} className="add-category-buttton"> Add Category </button>
+                {this.state.showForm ? <CategoryForm addCategory={this.addCategory} /> : this.renderCategories()}
 
             </div>
         )

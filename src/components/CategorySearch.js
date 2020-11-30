@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Search = props => {
+const CategorySearch = props => {
 
 return (
       <div className="ui search">
@@ -14,4 +14,4 @@ return (
     )
 }
 
-export default Search
+export default CategorySearch

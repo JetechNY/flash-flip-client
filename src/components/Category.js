@@ -1,5 +1,4 @@
 import React from 'react'
-import CardContainer from '../containers/CardContainer'
 
 class Category extends React.Component{
 
