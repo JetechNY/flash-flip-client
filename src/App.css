@@ -143,11 +143,11 @@ body {
 
 .game-stats {
   border: solid;
-  border-width: .05em;
+  border-width: 1px;
 }
 
-.card {
+.ui.card {
   border: solid;
-  border-width: .05em;
+  border-width: 1px;
 }
 
