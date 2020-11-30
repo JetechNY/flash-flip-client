@@ -1,10 +1,11 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 class CategoryForm extends React.Component {
 
   state = {
-    user_id: 2, //temp makes all new categories belong to user 2
+    user_id: 5, //temp makes all new categories belong to user 2
     name: ""
   }
 
@@ -27,9 +28,9 @@ class CategoryForm extends React.Component {
             <Form.Input fluid label="Name" placeholder="Category Name" name="name" value={this.state.name} onChange={this.handleChange}/>
           </Form.Group>
           <Form.Button>Submit</Form.Button>
-          <Form.Button onClick={this.props.showCategoryForm}>Cancel</Form.Button>
           <br/>
         </Form>
+        <Button onClick={this.props.handleShowCategoryForm}>Cancel</Button>
       </div>
     )
   }

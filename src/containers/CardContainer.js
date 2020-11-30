@@ -29,6 +29,10 @@ class CardContainer extends React.Component{
         this.setState({searchTerm: searchTerm})
     }
 
+    localHandleDeleteCategory = () => {
+        this.props.handleDeleteCategory(this.props.filteredCategory.id)
+    }
+
     render () {
         return (
             <div className="card-container">
@@ -39,7 +43,8 @@ class CardContainer extends React.Component{
                 : 
                 <>
                     <CardSearch searchTerm={this.state.searchTerm} handleCardSearchChange={this.handleCardSearchChange} />
-                    <Button onClick={this.props.handleGameState} >Study</Button>    
+                    <Button onClick={this.props.handleGameState} >Study</Button>
+                    <Button onClick={this.localHandleDeleteCategory} >Delete Category</Button>    
                     {this.renderCards()}
                 </>
                 }
