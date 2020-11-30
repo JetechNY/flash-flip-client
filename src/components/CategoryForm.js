@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react'
 class CategoryForm extends React.Component {
 
   state = {
-    user_id: 2, //temp makes all new categories belong to user 2
+    user_id: 6, //temp makes all new categories belong to user 2
     name: ""
   }
 

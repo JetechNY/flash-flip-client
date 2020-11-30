@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../components/FlashCard'
+import FlashCard from '../components/FlashCard'
 
 class GameContainer extends React.Component {
 
@@ -50,7 +50,7 @@ class GameContainer extends React.Component {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({...this.state.currentCard, is_starred: starMatrix[this.state.currentCard.is_starred]})
+                body: JSON.stringify({...this.state.shuffledCards[this.state.currentCardIndex], is_starred: starMatrix[this.state.shuffledCards[this.state.currentCardIndex].is_starred]})
             })
             .then(resp => resp.json())
             .then(card => {
@@ -99,7 +99,7 @@ class GameContainer extends React.Component {
     }
 
     reviewGame = () => {
-        return this.state.completedCards.map(card => <Card key={card.id} card={card} wonStatus={card.right}/>)
+        return this.state.completedCards.map(card => <FlashCard key={card.id} card={card} wonStatus={card.right}/>)
     }
 
     render() {
@@ -126,7 +126,7 @@ class GameContainer extends React.Component {
                         :
                         <>
                             <div className="game-container-card-holder">
-                                <Card key={currentCard.id} card={currentCard} />
+                                <FlashCard key={currentCard.id} card={currentCard} />
                             </div>
                             <div className="game-buttons">
                                 <button className="right-button" onClick={this.handleRight}>RIGHT</button>

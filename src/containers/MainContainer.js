@@ -65,16 +65,9 @@ class MainContainer extends React.Component {
                     <CategorySearch handleChange={this.handleChange}/>
                     <br />
                     {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
-                    {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null}
+                    {/* {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null} */}
                 </div>
             </Container>
-            // <>
-            //     <div className="main-container">
-            //         <CategoryContainer categories={this.state.categories} handleFilterCategory={this.handleFilterCategory}/>
-            //         {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
-            //     </div>
-            //     {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null}
-            // </>
         )
     }
 }

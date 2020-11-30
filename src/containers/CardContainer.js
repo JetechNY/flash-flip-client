@@ -1,6 +1,5 @@
 import React from 'react'
 import FlashCard from '../components/FlashCard'
-import GameContainer from './GameContainer'
 
 class CardContainer extends React.Component{
 
