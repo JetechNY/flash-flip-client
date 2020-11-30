@@ -37,14 +37,11 @@ class MainContainer extends React.Component {
             .then(data => this.setState({categories: [...this.state.categories, data]}))
       }
 
-    handleFilterCategory = (filteredCards) => {
+    handleFilterCards = (filteredCards) => {
         this.setState({filteredCards: filteredCards})
     }
 
-    filteredCategory = (searchTerm) => this.state.categories.filter(cat => cat.name.toLowerCase().includes(searchTerm.toLowerCase()))
-
-    handleChange = (e) => {
-        debugger
+    handleCategorySearchChange = (e) => {
         this.setState({
             filteredCategories: this.state.categories
         });
@@ -54,16 +51,15 @@ class MainContainer extends React.Component {
         });
     }
 
+
+    filteredCategory = (searchTerm) => this.state.categories.filter(cat => cat.name.toLowerCase().includes(searchTerm.toLowerCase()))
+
     render() {
         return (
             <Container>
                 <div className="main-container">
-                    <CategoryContainer categories={this.state.filteredCategories} handleFilterCategory={this.handleFilterCategory}/>
-                    <br />
-                    <CategoryForm addCategory={this.addCategory} />
-                    <br />
-                    <CategorySearch handleChange={this.handleChange}/>
-                    <br />
+                    <CategoryContainer categories={this.state.filteredCategories} handleFilterCards={this.handleFilterCards} handleCategorySearchChange={this.handleCategorySearchChange} addCategory={this.addCategory}/>
+
                     {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
                     {/* {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null} */}
                 </div>
