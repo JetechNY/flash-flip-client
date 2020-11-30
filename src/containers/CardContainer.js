@@ -8,12 +8,11 @@ class CardContainer extends React.Component{
 
     state = {
         showCardForm: false,
-        filteredCard: '',
         searchTerm: ''
     }
 
     renderCards = () => {
-        return this.filterCardsFromSearch().map(card=> <FlashCard key={card.id} card={card} />)
+        return this.filterCardsFromSearch().map(card=> <FlashCard key={card.id} card={card} handleDeleteCard={this.props.handleDeleteCard} />)
     }
 
     handleShowCardForm = () => {
@@ -39,7 +38,8 @@ class CardContainer extends React.Component{
                 <CardForm filteredCategoryId={this.props.filteredCategory.id} handleAddCard={this.props.handleAddCard} handleShowCardForm={this.handleShowCardForm}/> 
                 : 
                 <>
-                    <CardSearch searchTerm={this.state.searchTerm} handleCardSearchChange={this.handleCardSearchChange} />    
+                    <CardSearch searchTerm={this.state.searchTerm} handleCardSearchChange={this.handleCardSearchChange} />
+                    <Button onClick={this.props.handleGameState} >Study</Button>    
                     {this.renderCards()}
                 </>
                 }

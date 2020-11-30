@@ -1,5 +1,6 @@
 import React from 'react'
 import FlashCard from '../components/FlashCard'
+import { Button } from 'semantic-ui-react'
 
 class GameContainer extends React.Component {
 
@@ -37,34 +38,6 @@ class GameContainer extends React.Component {
         return index
     }
 
-    handleStarCard = () => {
-        
-        let starMatrix = {
-            true: false,
-            false: true
-        }
-
-        fetch(`http://localhost:3000/cards/${this.state.shuffledCards[this.state.currentCardIndex].id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({...this.state.shuffledCards[this.state.currentCardIndex], is_starred: starMatrix[this.state.shuffledCards[this.state.currentCardIndex].is_starred]})
-            })
-            .then(resp => resp.json())
-            .then(card => {
-                let index = this.findIndex(card)
-                if (index > -1) {
-                    const newShuffledCards = this.state.shuffledCards
-                    newShuffledCards[index] = card
-                    this.setState({shuffleCards: newShuffledCards})
-                }
-            })
-            .catch(err => console.log(err))
-
-    } 
-
     handleRight = () => {
         const currentCard = this.state.shuffledCards[this.state.currentCardIndex]
         this.setState(prevState => {
@@ -99,7 +72,7 @@ class GameContainer extends React.Component {
     }
 
     reviewGame = () => {
-        return this.state.completedCards.map(card => <FlashCard key={card.id} card={card} wonStatus={card.right}/>)
+        return this.state.completedCards.map(card => <FlashCard key={card.id} card={card} wonStatus={card.right} parentIsGameContainer={true}/>)
     }
 
     render() {
@@ -116,9 +89,8 @@ class GameContainer extends React.Component {
                         <p>wrong: {this.state.wrongCounter}</p>
                         <p>skipped: {this.state.skippedCounter}</p>
                     </div>
-                    {currentCard ? <button className="star-card-button" onClick={this.handleStarCard}>{currentCard.is_starred ? "Unstar Card": "Star Card"}</button> : null}
                 </section>
-                <section className="game-container-right-section">
+                <section className="game-container-center-section">
                     {this.state.currentCardIndex+1 > this.state.shuffledCards.length ? 
                         <div className="game-container-card-holder-over">
                             {this.reviewGame()}
@@ -126,15 +98,18 @@ class GameContainer extends React.Component {
                         :
                         <>
                             <div className="game-container-card-holder">
-                                <FlashCard key={currentCard.id} card={currentCard} />
+                                <FlashCard key={currentCard.id} card={currentCard} parentIsGameContainer={true} />
                             </div>
                             <div className="game-buttons">
-                                <button className="right-button" onClick={this.handleRight}>RIGHT</button>
-                                <button className="wrong-button" onClick={this.handleWrong}>WRONG</button>
-                                <button className="skip-button" onClick={this.handleSkipped}>SKIP</button>
+                                <Button className="right-button" onClick={this.handleRight}>RIGHT</Button>
+                                <Button className="wrong-button" onClick={this.handleWrong}>WRONG</Button>
+                                <Button className="skip-button" onClick={this.handleSkipped}>SKIP</Button>
                             </div>
                         </>
                     }
+                </section>
+                <section className="game-container-right-section">
+                    <Button onClick={this.props.handleGameState}>Exit Study Session</Button>
                 </section>
             </section>
         )

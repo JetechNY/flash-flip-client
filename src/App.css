@@ -125,12 +125,12 @@ body {
   padding: 5px;
 }
 
-.game-container-right-section {
+.game-container-center-section {
   display: flex;
   flex-direction: column;
 }
 
-.game-container-right-section * {
+.game-container-center-section * {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 5px;

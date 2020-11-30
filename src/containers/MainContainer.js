@@ -8,7 +8,8 @@ class MainContainer extends React.Component {
 
     state = {
         filteredCategory: '',
-        filteredCards: []
+        filteredCards: [],
+        gameState: false
     }
 
 
@@ -25,13 +26,31 @@ class MainContainer extends React.Component {
         })
     }
 
+    handleGameState = () => {
+        this.setState(prevState => {
+            return ({gameState: !prevState.gameState}) 
+        })
+    }
+
+    handleDeleteCard = (cardId) => {
+        let newFilteredCards = [...this.state.filteredCards]
+        const matchedCardIndex = newFilteredCards.findIndex(card => card.id === cardId)
+        newFilteredCards.splice(matchedCardIndex, 1)
+        this.setState({filteredCards: newFilteredCards})
+    }
+
     render() {
         return (
             <Container>
                 <div className="main-container">
-                    <CategoryContainer handleFilterCards={this.handleFilterCards}/>
-                    {this.state.filteredCategory ? <CardContainer filteredCategory={this.state.filteredCategory} filteredCards={this.state.filteredCards} handleAddCard={this.handleAddCard}/> : null}
-                    {/* {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null} */}
+                    {this.state.gameState ? 
+                    <GameContainer cards={this.state.filteredCards} handleGameState={this.handleGameState}/>
+                    :
+                    <>
+                        <CategoryContainer handleFilterCards={this.handleFilterCards}/>
+                        {this.state.filteredCategory ? <CardContainer filteredCategory={this.state.filteredCategory} filteredCards={this.state.filteredCards} handleAddCard={this.handleAddCard} handleGameState={this.handleGameState} handleDeleteCard={this.handleDeleteCard}/> : null}
+                    </>
+                    }
                 </div>
             </Container>
         )
