@@ -1,38 +1,153 @@
-.App {
+body {
+  font-family: RobotoThin;
+}
+
+.header {
+  margin-top: 1%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.header-logo {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: 2.1em;
+  margin-left: 2%;
+}
+
+.header-separator {
+  width: 95%;
+  border: none;
+  height: 2px;
+  margin-top: .5%;
+  background-color: black;
+}
+
+.footer {
+  position: fixed;
+  font-size: .9em;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(209, 207, 207);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-link {
+  display: flex;
+  margin-left: 2%;
+  color: inherit;
+  text-decoration: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-form-container {
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  border: solid;
+  border-width: .05em;
+  padding: 4rem 0px;
+}
+
+.login-form-container form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
 
-.App-link {
-  color: #61dafb;
+.login-form-container p {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-container {
+  display: flex;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
 }
+
+.category-container {
+  margin-right: 2rem;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.card-container {
+  flex-grow: 1;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+}
+
+.game-container-left-section {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+
+.game-container-left-section * {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.game-container-right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-container-right-section * {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.timer {
+  border: solid;
+  border-width: .05em;
+}
+
+.game-stats {
+  border: solid;
+  border-width: .05em;
+}
+
+.card {
+  border: solid;
+  border-width: .05em;
+}
+

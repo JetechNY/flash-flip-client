@@ -4,6 +4,7 @@ import CardContainer from './CardContainer'
 import CategoryForm from '../components/CategoryForm'
 import { Container } from 'semantic-ui-react'
 import CategorySearch from '../components/CategorySearch'
+import GameContainer from './GameContainer'
 
 class MainContainer extends React.Component {
 
@@ -63,9 +64,17 @@ class MainContainer extends React.Component {
                     <br />
                     <CategorySearch handleChange={this.handleChange}/>
                     <br />
-                    <CardContainer filteredCards={this.state.filteredCards} />
+                    {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
+                    {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null}
                 </div>
             </Container>
+            // <>
+            //     <div className="main-container">
+            //         <CategoryContainer categories={this.state.categories} handleFilterCategory={this.handleFilterCategory}/>
+            //         {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
+            //     </div>
+            //     {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null}
+            // </>
         )
     }
 }

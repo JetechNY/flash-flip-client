@@ -9,7 +9,6 @@ class CategoryContainer extends React.Component{
     }
 
     render () {
-        console.log(this.state)
         return (
             <div className="category-container">
                 <h1>Categories</h1>
