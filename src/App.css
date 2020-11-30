@@ -3,7 +3,7 @@ body {
 }
 
 .header {
-  margin-top: 1%;
+  margin-top: 2%;
   display: flex;
   flex: 1;
   flex-direction: column;
