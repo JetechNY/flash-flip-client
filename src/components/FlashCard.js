@@ -1,7 +1,7 @@
 import React from 'react'
+import { Card } from 'semantic-ui-react'
 
-class Card extends React.Component{
-
+class FlashCard extends React.Component{
 
     state = {
         flipped: true
@@ -13,12 +13,12 @@ class Card extends React.Component{
 
     render(){
         return(
-            <div onClick={this.clickFlip} className="card">
+            <Card onClick={this.clickFlip} className="card">
                 <h3>{ this.state.flipped ? this.props.card.term : this.props.card.definition }</h3>
-            </div>
+            </Card>
         )
     }
 
 }
 
-export default Card
+export default FlashCard
