@@ -1,10 +1,15 @@
 import React from 'react'
 
-const Search = props => {
+const CardSearch = props => {
+    
+  const localHandleCardSearchChange = (e) => {
+    props.handleCardSearchChange(e.target.value)
+  }
+  
     return (
       <div className="ui search">
         <div className="ui icon input">
-          <input value={props.searchTerm} onChange={props.handleChange} className="prompt"/>
+          <input value={props.searchTerm} onChange={localHandleCardSearchChange} className="prompt"/>
           <i className="search icon" />
           <br/>
         </div>
@@ -12,4 +17,4 @@ const Search = props => {
     )
 }
 
-export default Search
+export default CardSearch

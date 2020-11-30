@@ -7,12 +7,22 @@ import GameContainer from './GameContainer'
 class MainContainer extends React.Component {
 
     state = {
+        filteredCategory: '',
         filteredCards: []
     }
 
 
-    handleFilterCards = (filteredCards) => {
-        this.setState({filteredCards: filteredCards})
+    handleFilterCards = (filteredCategory) => {
+        this.setState({
+            filteredCategory: filteredCategory,
+            filteredCards: filteredCategory.cards
+        })
+    }
+
+    handleAddCard = (newCard) => {
+        this.setState(prevState => {
+            return ({filteredCards: [...prevState.filteredCards, newCard]})
+        })
     }
 
     render() {
@@ -20,7 +30,7 @@ class MainContainer extends React.Component {
             <Container>
                 <div className="main-container">
                     <CategoryContainer handleFilterCards={this.handleFilterCards}/>
-                    {this.state.filteredCards.length > 0 ? <CardContainer filteredCards={this.state.filteredCards} /> : null}
+                    {this.state.filteredCategory ? <CardContainer filteredCategory={this.state.filteredCategory} filteredCards={this.state.filteredCards} handleAddCard={this.handleAddCard}/> : null}
                     {/* {this.state.filteredCards.length > 0 ? <GameContainer cards={this.state.filteredCards}/>: null} */}
                 </div>
             </Container>

@@ -27,6 +27,7 @@ class CategoryForm extends React.Component {
             <Form.Input fluid label="Name" placeholder="Category Name" name="name" value={this.state.name} onChange={this.handleChange}/>
           </Form.Group>
           <Form.Button>Submit</Form.Button>
+          <Form.Button onClick={this.props.showCategoryForm}>Cancel</Form.Button>
           <br/>
         </Form>
       </div>

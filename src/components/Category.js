@@ -3,7 +3,7 @@ import React from 'react'
 class Category extends React.Component{
 
     localHandleFilterCards = () => {
-        this.props.handleFilterCards(this.props.category.cards)
+        this.props.handleFilterCards(this.props.category)
     }
 
     render(){

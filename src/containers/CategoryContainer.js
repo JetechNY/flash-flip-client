@@ -2,6 +2,7 @@ import React from 'react'
 import Category from '../components/Category'
 import CategorySearch from '../components/CategorySearch'
 import CategoryForm from '../components/CategoryForm'
+import { Button } from 'semantic-ui-react'
 
 class CategoryContainer extends React.Component{
 
@@ -67,8 +68,8 @@ class CategoryContainer extends React.Component{
             <div className="category-container">
                 <h1>Categories</h1>
                 <CategorySearch handleCategorySearchChange={this.handleCategorySearchChange}/>
-                <button onClick={this.showCategoryForm} className="add-category-buttton"> Add Category </button>
-                {this.state.showForm ? <CategoryForm addCategory={this.addCategory} /> : this.renderCategories()}
+                {this.state.showForm ? null : <Button onClick={this.showCategoryForm} id="add-category-button">Add Category</Button>}
+                {this.state.showForm ? <CategoryForm addCategory={this.addCategory} showCategoryForm={this.showCategoryForm} /> : this.renderCategories()}
 
             </div>
         )
