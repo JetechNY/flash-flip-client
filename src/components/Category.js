@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 class Category extends React.Component{
 
@@ -9,7 +10,7 @@ class Category extends React.Component{
     render(){
         return(
             <div className="category">
-                <h2 onClick={this.localHandleFilterCards}>{this.props.category.name}</h2>
+                <NavLink onClick={this.localHandleFilterCards} to={"/categories/"+this.props.category.id}>{this.props.category.name}</NavLink>
             </div>
         )
     }

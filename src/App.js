@@ -3,6 +3,9 @@ import React from 'react'
 import MainContainer from './containers/MainContainer'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import LoginForm from './components/LoginForm'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import GameContainer from './containers/GameContainer';
 
 class App extends React.Component {
 
@@ -17,9 +20,22 @@ class App extends React.Component {
   render () {
     return (
       <section className="App">
-        <Header loggedIn={this.state.loggedIn} handleLoginFormSubmit={this.handleLoginFormSubmit} />
-        {this.state.loggedIn ? <MainContainer /> : null }
-        <Footer />        
+        <BrowserRouter>
+          <Header />
+          <Switch>
+            {/* <Route path="/categories/:id" component={GameContainer}> */}
+            <Route path="/categories">
+              {this.state.loggedIn ? <MainContainer /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/login">
+              {this.state.loggedIn ? <Redirect to="/categories" /> : <LoginForm loggedIn={this.state.loggedIn} handleLoginFormSubmit={this.handleLoginFormSubmit}/>}
+            </Route>
+            <Route exact path="/">
+              {this.state.loggedIn ? <Redirect to="/categories"/> : <Redirect to="/login" />}
+            </Route>
+          </Switch>
+          <Footer />
+        </BrowserRouter>
       </section>
     );
   }

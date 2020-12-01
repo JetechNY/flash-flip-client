@@ -1,10 +1,12 @@
 import React from 'react'
 import NavBar from './NavBar'
 import LoginForm from './LoginForm'
+import { useHistory } from 'react-router-dom' 
 
 
 function Header(props) {
 
+    const history = useHistory()
 
     return (
         <section className="header">
@@ -13,7 +15,7 @@ function Header(props) {
             </section>
             <section className="header-navbar">
                 <hr className="header-separator" />
-                {props.loggedIn ? <NavBar /> : <LoginForm handleLoginFormSubmit={props.handleLoginFormSubmit}/>}
+                {props.loggedIn ? <NavBar /> : null}
             </section>
         </section>
     )
