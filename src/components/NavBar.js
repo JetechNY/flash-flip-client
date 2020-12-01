@@ -7,7 +7,7 @@ function NavBar(props) {
     return (
         <section className="navbar">
             <NavLink to="/categories" className="navbar-link">ALL CATEGORIES</NavLink>
-            <button className="navbar-link" onClick={props.handleLogout}>LOG OUT</button>
+            <p className="navbar-link" onClick={props.handleLogout}>LOG OUT</p>
         </section>
     )
 

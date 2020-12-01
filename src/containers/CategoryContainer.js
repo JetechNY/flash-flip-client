@@ -15,7 +15,7 @@ class CategoryContainer extends React.Component{
             <div className="category-container">
                 <h1>Categories</h1>
                 <CategorySearch handleCategorySearchChange={this.props.handleCategorySearchChange}/>
-                {this.props.showCategoryForm ? null : <Button onClick={this.props.handleShowCategoryForm} id="add-category-button">Add Category</Button>}
+                {this.props.showCategoryForm ? null : <Button onClick={this.props.handleShowCategoryForm}>Add Category</Button>}
                 {this.props.showCategoryForm ? <CategoryForm addCategory={this.props.addCategory} handleShowCategoryForm={this.props.handleShowCategoryForm} /> : this.renderCategories()}
 
             </div>
