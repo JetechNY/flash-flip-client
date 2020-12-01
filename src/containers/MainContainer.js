@@ -16,12 +16,17 @@ class MainContainer extends React.Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/categories')
-        .then(response => response.json())
-        .then(categories => this.setState({
-            categories: categories,
-            filteredCategories: categories
-        }))
+        fetch(`http://localhost:3000/users/${this.props.user.id}`, {
+            method: "GET",
+            headers: {Authorization: `Bearer ${this.props.jwt}`}
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            this.setState({
+                categories: data.user.categories,
+                filteredCategories: data.user.categories
+            })
+        })
         .catch(err => console.log(err))
     }
 
@@ -32,7 +37,7 @@ class MainContainer extends React.Component {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
-                body: JSON.stringify(categoryObj)
+                body: JSON.stringify({...categoryObj, user_id: this.props.user.id})
             })
             .then(r => r.json())
             .then(data => this.setState(prevState => {
@@ -74,7 +79,10 @@ class MainContainer extends React.Component {
     }
 
     handleDeleteCategory = (categoryId) => {
-        fetch(`http://localhost:3000/categories/${categoryId}`, {method: 'DELETE'})
+        fetch(`http://localhost:3000/categories/${categoryId}`, {
+            method: 'DELETE',
+            headers: {Authorization: `Bearer ${this.props.jwt}`}
+        })
         .then(resp => resp.json())
         .then(data => {
             console.log(data, "success!")
@@ -113,7 +121,7 @@ class MainContainer extends React.Component {
                     :
                     <>
                         <CategoryContainer handleFilterCards={this.handleFilterCards} categories={this.state.categories} filteredCategories={this.state.filteredCategories} showCategoryForm={this.state.showCategoryForm} filteredCategory={this.filteredCategory} handleCategorySearchChange={this.handleCategorySearchChange} handleShowCategoryForm={this.handleShowCategoryForm} addCategory={this.addCategory}/>
-                        {this.state.filteredCategory ? <CardContainer filteredCategory={this.state.filteredCategory} filteredCards={this.state.filteredCards} handleAddCard={this.handleAddCard} handleGameState={this.handleGameState} handleDeleteCard={this.handleDeleteCard} handleDeleteCategory={this.handleDeleteCategory}/> : null}
+                        {this.state.filteredCategory ? <CardContainer filteredCategory={this.state.filteredCategory} filteredCards={this.state.filteredCards} handleAddCard={this.handleAddCard} handleGameState={this.handleGameState} handleDeleteCard={this.handleDeleteCard} handleDeleteCategory={this.handleDeleteCategory} jwt={this.props.jwt}/> : null}
                     </>
                     }
                 </div>

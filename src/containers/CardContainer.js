@@ -12,7 +12,7 @@ class CardContainer extends React.Component{
     }
 
     renderCards = () => {
-        return this.filterCardsFromSearch().map(card=> <FlashCard key={card.id} card={card} handleDeleteCard={this.props.handleDeleteCard} />)
+        return this.filterCardsFromSearch().map(card=> <FlashCard key={card.id} card={card} handleDeleteCard={this.props.handleDeleteCard} jwt={this.props.jwt}/>)
     }
 
     handleShowCardForm = () => {

@@ -17,12 +17,45 @@ class LoginForm extends React.Component {
 
     localHandleLoginFormSubmit = (e) => {
         e.preventDefault()
-        this.props.handleLoginFormSubmit()
+        fetch('http://localhost:3000/login', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                user: {
+                    username: this.state.usernameSignIn,
+                    password: this.state.passwordSignIn
+                }
+            })
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            this.props.handleLoginFormSubmit(data)
+        })
     }
 
     localHandleSignUpFormSubmit = (e) => {
         e.preventDefault()
-        console.log("signing up!", this.state.emailSignUp, this.state.usernameSignUp, this.state.passwordSignUp)
+        fetch('http://localhost:3000/users', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                user: {
+                    username: this.state.usernameSignUp,
+                    password: this.state.passwordSignUp,
+                    email: this.state.emailSignUp
+                }
+            })
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            this.props.handleCreateAccount(data)
+        })
     }
 
     render() {

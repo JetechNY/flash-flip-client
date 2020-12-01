@@ -23,7 +23,8 @@ class FlashCard extends React.Component{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    Authorization: `Bearer ${this.props.jwt}`
                 },
                 body: JSON.stringify({...this.props.card, is_starred: !this.state.isStarred})
             })
@@ -35,7 +36,11 @@ class FlashCard extends React.Component{
 
     localHandleDeleteCard = () => {
         this.props.handleDeleteCard(this.props.card.id)
-        fetch(`http://localhost:3000/cards/${this.props.card.id}`, {method:'DELETE'})
+        fetch(`http://localhost:3000/cards/${this.props.card.id}`, {
+            method:'DELETE',
+            headers: {Authorization: `Bearer ${this.props.jwt}`}
+        })
+
         .catch(err => console.log(err))
     }
 
