@@ -1,14 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 
 function NavBar(props) {
 
-
     return (
         <section className="navbar">
-            <a href="/" className="navbar-link">ALL CATEGORIES</a>
-            <a href="/" className="navbar-link">STARRED CARDS</a>
-            <a href="/" className="navbar-link">LOG OUT</a>
+            <NavLink to="/categories" className="navbar-link">ALL CATEGORIES</NavLink>
+            <button className="navbar-link" onClick={props.handleLogout}>LOG OUT</button>
         </section>
     )
 

@@ -5,25 +5,29 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import LoginForm from './components/LoginForm'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import GameContainer from './containers/GameContainer';
 
 class App extends React.Component {
 
   state = {
-    loggedIn: false
+    loggedIn: JSON.parse(window.localStorage.getItem("is-logged-in")) || false
   }
 
   handleLoginFormSubmit = () => {
     this.setState({loggedIn: true})
+    window.localStorage.setItem("is-logged-in", true)
+  }
+
+  handleLogout = () => {
+    window.localStorage.setItem("is-logged-in", false)
+    this.setState({loggedIn: false})
   }
 
   render () {
     return (
       <section className="App">
         <BrowserRouter>
-          <Header />
+          <Header loggedIn={this.state.loggedIn} handleLogout={this.handleLogout} />
           <Switch>
-            {/* <Route path="/categories/:id" component={GameContainer}> */}
             <Route path="/categories">
               {this.state.loggedIn ? <MainContainer /> : <Redirect to="/login" />}
             </Route>
