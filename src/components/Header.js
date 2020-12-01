@@ -1,10 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
-import LoginForm from './LoginForm'
-
 
 function Header(props) {
-
 
     return (
         <section className="header">
@@ -13,7 +10,7 @@ function Header(props) {
             </section>
             <section className="header-navbar">
                 <hr className="header-separator" />
-                {props.loggedIn ? <NavBar /> : <LoginForm handleLoginFormSubmit={props.handleLoginFormSubmit}/>}
+                {props.loggedIn ? <NavBar handleLogout={props.handleLogout}/> : null}
             </section>
         </section>
     )
