@@ -9,19 +9,15 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 class App extends React.Component {
 
   state = {
-    loggedIn: JSON.parse(window.localStorage.getItem("is-logged-in")) || false,
-    user: {},
-    jwt: ''
+    user: JSON.parse(window.localStorage.getItem("user")) || {},
+    jwt: window.localStorage.getItem("jwt") || ''
   }
 
-  componentDidMount() {
-    this.setState({jwt: window.localStorage.getItem("jwt")})
-  }
 
   handleLoginFormSubmit = ({user, jwt}) => {
     if (user) {
-      this.setState({loggedIn: true, user: user, jwt: jwt})
-      window.localStorage.setItem("is-logged-in", true)
+      this.setState({user: user, jwt: jwt})
+      window.localStorage.setItem("user", JSON.stringify(user))
       window.localStorage.setItem("jwt", jwt)
     } else {
       window.alert("Incorrect Username or Password. Try again.")
@@ -29,14 +25,14 @@ class App extends React.Component {
   }
 
   handleCreateAccount = ({user, jwt}) => {
-    this.setState({loggedIn: true, user: user, jwt: jwt})
-    window.localStorage.setItem("is-logged-in", true)
+    this.setState({user: user, jwt: jwt})
+    window.localStorage.setItem("user", JSON.stringify(user))
     window.localStorage.setItem("jwt", jwt)
   }
 
   handleLogout = () => {
-    this.setState({loggedIn: false, user: {}, jwt: ''})
-    window.localStorage.setItem("is-logged-in", false)
+    this.setState({user: {}, jwt: ''})
+    window.localStorage.setItem("user", JSON.stringify({}))
     window.localStorage.setItem("jwt", "")
   }
 
@@ -44,16 +40,16 @@ class App extends React.Component {
     return (
       <section className="App">
         <BrowserRouter>
-          <Header loggedIn={this.state.loggedIn} handleLogout={this.handleLogout} />
+          <Header loggedIn={!!this.state.jwt} handleLogout={this.handleLogout} />
           <Switch>
             <Route path="/categories">
-              {this.state.loggedIn ? <MainContainer user={this.state.user} jwt={this.state.jwt}/> : <Redirect to="/login" />}
+              {!!this.state.jwt ? <MainContainer user={this.state.user} jwt={this.state.jwt}/> : <Redirect to="/login" />}
             </Route>
             <Route path="/login">
-              {this.state.loggedIn ? <Redirect to="/categories" /> : <LoginForm loggedIn={this.state.loggedIn} handleLoginFormSubmit={this.handleLoginFormSubmit} handleCreateAccount={this.handleCreateAccount}/>}
+              {!!this.state.jwt ? <Redirect to="/categories" /> : <LoginForm loggedIn={!!this.state.jwt} handleLoginFormSubmit={this.handleLoginFormSubmit} handleCreateAccount={this.handleCreateAccount}/>}
             </Route>
             <Route exact path="/">
-              {this.state.loggedIn ? <Redirect to="/categories"/> : <Redirect to="/login" />}
+              {!!this.state.jwt ? <Redirect to="/categories"/> : <Redirect to="/login" />}
             </Route>
           </Switch>
           <Footer />

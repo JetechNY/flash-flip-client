@@ -15,7 +15,7 @@ class MainContainer extends React.Component {
         showCategoryForm: false
     }
 
-    componentDidMount(){
+    fetchCategories = () => {
         fetch(`http://localhost:3000/users/${this.props.user.id}`, {
             method: "GET",
             headers: {Authorization: `Bearer ${this.props.jwt}`}
@@ -28,6 +28,14 @@ class MainContainer extends React.Component {
             })
         })
         .catch(err => console.log(err))
+    }
+
+    componentDidMount(){
+        if (this.props.user.id) this.fetchCategories()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.user.id !== this.props.user.id && this.props.user.id) this.fetchCategories()
     }
 
     addCategory = (categoryObj) => {
