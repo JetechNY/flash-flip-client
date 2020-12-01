@@ -10,7 +10,7 @@ class Category extends React.Component{
     render(){
         return(
             <div className="category">
-                <NavLink onClick={this.localHandleFilterCards} to={"/categories/"+this.props.category.id}>{this.props.category.name}</NavLink>
+                <NavLink onClick={this.localHandleFilterCards} to={"/categories/"+this.props.category.name.toLowerCase().replace(" ", "-")}>{this.props.category.name}</NavLink>
             </div>
         )
     }
