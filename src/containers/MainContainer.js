@@ -3,6 +3,7 @@ import CategoryContainer from './CategoryContainer'
 import CardContainer from './CardContainer'
 import { Container } from 'semantic-ui-react'
 import GameContainer from './GameContainer'
+import { Button } from 'semantic-ui-react'
 
 class MainContainer extends React.Component {
 
@@ -47,7 +48,7 @@ class MainContainer extends React.Component {
                     showCategoryForm: false,
                     filteredCategory: data,
                     filteredCards: []
-                }) 
+                })
             }))
       }
 
@@ -67,7 +68,7 @@ class MainContainer extends React.Component {
 
     handleGameState = () => {
         this.setState(prevState => {
-            return ({gameState: !prevState.gameState}) 
+            return ({gameState: !prevState.gameState})
         })
     }
 
@@ -116,7 +117,7 @@ class MainContainer extends React.Component {
         return (
             <Container>
                 <div className="main-container">
-                    {this.state.gameState ? 
+                    {this.state.gameState ?
                     <GameContainer cards={this.state.filteredCards} handleGameState={this.handleGameState}/>
                     :
                     <>
@@ -124,6 +125,7 @@ class MainContainer extends React.Component {
                         {this.state.filteredCategory ? <CardContainer filteredCategory={this.state.filteredCategory} filteredCards={this.state.filteredCards} handleAddCard={this.handleAddCard} handleGameState={this.handleGameState} handleDeleteCard={this.handleDeleteCard} handleDeleteCategory={this.handleDeleteCategory} jwt={this.props.jwt}/> : null}
                     </>
                     }
+                    
                 </div>
             </Container>
         )
