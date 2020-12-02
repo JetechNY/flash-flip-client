@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, CardContent } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react'
 
 class FlashCard extends React.Component{
@@ -47,12 +47,21 @@ class FlashCard extends React.Component{
         .catch(err => console.log(err))
     }
 
+
+
     render(){
         return(
             <div className="flash-card">
-                <Card onClick={this.clickFlip} className="card">
-                    <h3>{ this.state.flipped ? this.props.card.term : this.props.card.definition }</h3>
-                </Card>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div className ="flip-card-front">
+                            <h2>{ this.props.card.term}</h2>
+                        </div>
+                        <div className ="flip-card-back">
+                            <h2>{ this.props.card.definition }</h2>
+                        </div>
+                    </div>
+                </div>
                 <div className="flash-card-buttons">
                     <Button onClick={this.handleStarCard}>{this.state.isStarred ? <i className="star icon" />: <i className="star outline icon" />}</Button>
                     {this.props.parentIsGameContainer ? null : <Button onClick={this.localHandleDeleteCard}><i className="trash icon" /></Button> }
