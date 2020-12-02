@@ -110,6 +110,11 @@ body {
   overflow-y: auto;
 }
 
+.card-container .ui.button {
+  max-height: 3rem;
+  white-space: nowrap;
+}
+
 .card-container::-webkit-scrollbar {
   width: .65rem;
 }
