@@ -49,13 +49,13 @@ class FlashCard extends React.Component{
 
     render(){
         return(
-            <>
+            <div className="flash-card">
                 <Card onClick={this.clickFlip} className="card">
                     <h3>{ this.state.flipped ? this.props.card.term : this.props.card.definition }</h3>
                 </Card>
                 <Button onClick={this.handleStarCard}>{this.state.isStarred ? "Unstar Card": "Star Card"}</Button>
                 {this.props.parentIsGameContainer ? null : <Button onClick={this.localHandleDeleteCard}>Delete Card</Button> }
-            </>
+            </div>
         )
     }
 
