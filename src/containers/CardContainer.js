@@ -69,14 +69,14 @@ class CardContainer extends React.Component{
                 <div className="card-container-top">
                     <div className="card-container-top-top">
                         <h1>{this.props.filteredCategory.name} Flash Cards</h1>
-                        {this.state.showCardForm ? null : <Button id="delete-category-button" onClick={this.localHandleDeleteCategory}>Delete Category <i className="trash icon" /></Button>}
+                        {this.state.showCardForm ? null : <Button id="delete-category-button" onClick={this.localHandleDeleteCategory}><i className="trash icon" />Delete Category</Button>}
                     </div>
                     <div className="card-container-top-center">
                         {this.state.showCardForm ? null : <CardSearch searchTerm={this.state.searchTerm} handleCardSearchChange={this.handleCardSearchChange} />}
                     </div>
                     <div className="card-container-top-bottom">
                         <Button onClick={this.handleShowCardForm}>{this.state.showCardForm ? "Cancel" : <><i className="add icon" />Add Flash Card</>}</Button>
-                        {this.state.showCardForm ? null : <Button onClick={this.props.handleGameState}>Start Study Session</Button>}
+                        {this.state.showCardForm ? null : <Button onClick={this.props.handleGameState}> <><i className="pencil alternate icon" /> Start Study Session</></Button>}
                     </div>
                 </div>
                 <div className="card-container-bottom">
