@@ -35,12 +35,15 @@ class FlashCard extends React.Component{
     }
 
     localHandleDeleteCard = () => {
-        this.props.handleDeleteCard(this.props.card.id)
         fetch(`http://localhost:3000/cards/${this.props.card.id}`, {
             method:'DELETE',
             headers: {Authorization: `Bearer ${this.props.jwt}`}
         })
-
+        .then(resp => resp.json())
+        .then(data => {
+            console.log("successfully deleted!", data)
+            this.props.handleDeleteCard(this.props.card.id)
+        })
         .catch(err => console.log(err))
     }
 

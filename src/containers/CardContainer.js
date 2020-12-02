@@ -9,7 +9,6 @@ class CardContainer extends React.Component{
     state = {
         showCardForm: false,
         searchTerm: '',
-        numCardsAdded: 0,
         cards: []
     }
 
@@ -35,13 +34,15 @@ class CardContainer extends React.Component{
     handleAddCardsCardContainer = (newCard) => {
         this.props.handleAddCard(newCard)
         this.fetchCards()
-        this.setState(prevState => {
-            return ({numCardsAdded: prevState.numCardsAdded += 1})
-        })
+    }
+
+    handleDeleteCardsCardContainer = (newCard) => {
+        this.props.handleDeleteCard(newCard)
+        this.fetchCards()
     }
 
     renderCards = () => {
-        return this.filterCardsFromSearch().map(card=> <FlashCard key={card.id} card={card} handleDeleteCard={this.props.handleDeleteCard} jwt={this.props.jwt} />)
+        return this.filterCardsFromSearch().map(card=> <FlashCard key={card.id} card={card} handleDeleteCard={this.handleDeleteCardsCardContainer} jwt={this.props.jwt} />)
     }
 
     handleShowCardForm = () => {
