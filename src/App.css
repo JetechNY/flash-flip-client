@@ -1,5 +1,6 @@
 body {
   font-family: RobotoThin;
+  background-color: rgb(227, 249, 247);
 }
 
 .header {
@@ -371,4 +372,12 @@ body {
 .ui.card {
   border: solid;
   border-width: 1px;
+<<<<<<< HEAD
 }
+=======
+}
+
+#add-category-button {
+  /* background: green; */
+}
+>>>>>>> 84a1cc285158db98282d114a8ce71abfe1e28ce2
