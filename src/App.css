@@ -119,7 +119,7 @@ body {
 }
 
 .card-container .ui.button {
-  max-height: 3rem;
+  max-height: 2.5em;
   white-space: nowrap;
 }
 
@@ -133,15 +133,15 @@ body {
 }
 
 .card-container-top {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  flex-basis: 100%;
 }
 
 .card-container-top-top {
+  flex: 0 1 auto;
   display: flex;
   flex-direction: row;
-  flex-basis: 100%;
   margin-top: .5rem;
   margin-bottom: 1rem;
   justify-content: space-between;
@@ -152,7 +152,13 @@ body {
   margin: 0;
 }
 
+.card-container-top-center {
+  flex: 0 1 auto;
+  display: flex;
+}
+
 .card-container-top-bottom {
+  flex: 0 1 auto;
   display: flex;
   flex-direction: row;
   flex-basis: 100%;
@@ -164,7 +170,7 @@ body {
   white-space: nowrap;
 }
 
-.ui.search {
+.card-container .ui.search {
   width: 50%;
   margin-bottom: 1rem;
 }
@@ -177,6 +183,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  flex: 1 0 auto;
 }
 
 .card-container-bottom > * {
@@ -194,20 +201,6 @@ body {
   text-align: center;
 }
 
-/*
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-} */
 
 .flash-card-buttons {
   display: flex;
@@ -220,23 +213,126 @@ body {
   flex: 0 0 50%;
 }
 
-.game-container {
+.category-container {
+  flex: 0 0 35%;
+  flex-direction: column;
+  display: flex;
+  margin-right: 1rem;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.category-container::-webkit-scrollbar {
+  width: .65rem;
+}
+
+.category-container::-webkit-scrollbar-thumb {
+  background-color: rgb(83, 83, 83);
+  outline: 1px solid black;
+}
+
+.category-container-top h1 {
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+}
+
+.category-container-top .ui.search {
+  margin-bottom: 1rem;
+}
+
+.category-container-top-buttons {
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  border: solid;
+  flex-wrap: nowrap;
+  flex: 1 0 auto;
+  margin-bottom: 2rem;
+}
+
+.category-container-top-buttons > * {
+  white-space: nowrap;
+  width: 100%;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.category > * {
+  border-style: solid;
+  border-color: rgb(172, 172, 172);
+  color: black;
+  font-size: 1.3em;
   border-width: 1px;
+  border-radius: 5px;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  margin-left: 1.3rem;
+  margin-right: 1.3rem;
+  padding-left: 1rem;
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+  background-color: rgb(231, 230, 230);
+}
+
+.fav-list {
+  flex-direction: column;
+  display: flex;
+  margin-right: 1rem;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1rem;
+  overflow-y: auto;
+  flex-basis: 100%;
+  flex-grow: 1;
+}
+
+.fav-list::-webkit-scrollbar {
+  width: .65rem;
+}
+
+.fav-list::-webkit-scrollbar-thumb {
+  background-color: rgb(83, 83, 83);
+  outline: 1px solid black;
+}
+
+.fav-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.fav-list-container > * {
+  flex: 0 0 50%;
+  display: inline-block;
+  max-width: 50%;
+}
+
+.game-container {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
   padding: 10px;
+  display: flex;
+  overflow-y: auto;
+}
+
+.game-container::-webkit-scrollbar {
+  width: .65rem;
+}
+
+.game-container::-webkit-scrollbar-thumb {
+  background-color: rgb(83, 83, 83);
+  outline: 1px solid black;
 }
 
 .game-container-left-section {
   display: flex;
+  flex: 0 0 25%;
   flex-direction: column;
-  margin-right: 2rem;
+  margin-right: 10px;
 }
 
 .game-container-left-section * {
@@ -245,15 +341,39 @@ body {
   padding: 5px;
 }
 
-.game-container-center-section {
+.game-container-right-section {
+  flex: 1 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
-.game-container-center-section * {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 5px;
+.game-container-right-section * {
+  flex: 0 0 auto;
+}
+
+.game-container-card-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 auto;
+}
+
+.game-buttons {
+  flex: 1 0 auto;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.game-container-card-holder-over {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  overflow-y: auto;
+}
+
+.game-container-card-holder-over * {
+  flex: 1 0 auto;
 }
 
 .timer {
@@ -269,8 +389,4 @@ body {
 .ui.card {
   border: solid;
   border-width: 1px;
-}
-
-#add-category-button {
-  /* background: green; */
 }

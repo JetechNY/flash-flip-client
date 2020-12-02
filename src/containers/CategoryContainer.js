@@ -11,17 +11,20 @@ class CategoryContainer extends React.Component{
         return this.props.filteredCategories.map(category=> <Category key={category.id} category={category} handleFilterCards={this.props.handleFilterCards} />)
     }
 
-
-
     render () {
         return (
             <div className="category-container">
-                <h1 className="ccc">Categories</h1>
-                <CategorySearch handleCategorySearchChange={this.props.handleCategorySearchChange}/>
-                {this.props.showCategoryForm ? null : <Button onClick={this.props.handleShowCategoryForm}>Add Category</Button>}
-                {this.props.showCategoryForm ? <CategoryForm addCategory={this.props.addCategory} handleShowCategoryForm={this.props.handleShowCategoryForm} /> : this.renderCategories()}
-
-                <Button onClick={this.props.handleFavCardList}> {this.props.favList ? "Close Fave Card List":"My Fav Cards"}</Button>
+                <div className="category-container-top">
+                    <h1 className="ccc">Categories</h1>
+                    {this.props.showCategoryForm ? null : <CategorySearch handleCategorySearchChange={this.props.handleCategorySearchChange}/>}
+                    <div className="category-container-top-buttons">
+                        {this.props.showCategoryForm ? null : <Button onClick={this.props.handleShowCategoryForm}><i className="add icon" />Add Category</Button>}
+                        {this.props.showCategoryForm ? null : <Button onClick={this.props.handleFavCardList}> {this.props.favList ? <><i className="star icon" />Close</>:<><i className="star icon" /> Cards</>}</Button>}
+                    </div>
+                </div>
+                <div className="category-container-bottom">
+                    {this.props.showCategoryForm ? <CategoryForm addCategory={this.props.addCategory} handleShowCategoryForm={this.props.handleShowCategoryForm} /> : this.renderCategories()}
+                </div>
             </div>
         )
     }
