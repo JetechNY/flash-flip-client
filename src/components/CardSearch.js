@@ -9,7 +9,7 @@ const CardSearch = props => {
     return (
       <div className="ui search">
         <div className="ui icon input">
-          <input value={props.searchTerm} onChange={localHandleCardSearchChange} className="prompt"/>
+          <input value={props.searchTerm} onChange={localHandleCardSearchChange} className="prompt" placeholder="Filter Cards"/>
           <i className="search icon" />
         </div>
       </div>
