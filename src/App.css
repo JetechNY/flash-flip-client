@@ -1,6 +1,6 @@
 body {
   font-family: RobotoThin;
-  background-color: rgb(227, 249, 247);
+  background-color: rgb(255, 253, 240);
 }
 
 .header {
@@ -87,6 +87,7 @@ body {
   border-style: solid;
   border-width: 1px;
   padding: 10px;
+
 }
 
 .category-container {
@@ -95,6 +96,12 @@ body {
   border-style: solid;
   border-width: 1px;
   padding: 10px;
+  font-family: RobotoThin;
+  font-size: 15px;
+}
+
+.ccc{
+  font-family: RobotoThin;
 }
 
 .card-container {
@@ -140,7 +147,8 @@ body {
   justify-content: space-between;
 }
 
-.card-container-top-top > h1 {
+.cctt{
+  font-family: RobotoThin;
   margin: 0;
 }
 
@@ -183,7 +191,23 @@ body {
   flex-wrap: nowrap;
   padding: 1.5rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
+
+/*
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
 
 .flash-card-buttons {
   display: flex;
