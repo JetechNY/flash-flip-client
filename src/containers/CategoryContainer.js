@@ -7,18 +7,11 @@ import FavList from '../components/FavList'
 
 class CategoryContainer extends React.Component{
 
-    state = {
-        favList: true
-    }
-
     renderCategories = () => {
         return this.props.filteredCategories.map(category=> <Category key={category.id} category={category} handleFilterCards={this.props.handleFilterCards} />)
     }
 
-    handleFavCardList =() => {
-        console.log(this.state.favList)
-        this.setState({favList: !this.state.favList})
-    }
+
 
     render () {
         return (
@@ -28,7 +21,7 @@ class CategoryContainer extends React.Component{
                 {this.props.showCategoryForm ? null : <Button onClick={this.props.handleShowCategoryForm}>Add Category</Button>}
                 {this.props.showCategoryForm ? <CategoryForm addCategory={this.props.addCategory} handleShowCategoryForm={this.props.handleShowCategoryForm} /> : this.renderCategories()}
 
-                <Button onClick={this.handleFavCardList}> {this.state.favList ? "My Fav Cards ": "Close Fave Card List"}</Button>
+                <Button onClick={this.props.handleFavCardList}> {this.props.favList ? "Close Fave Card List":"My Fav Cards"}</Button>
             </div>
         )
     }
@@ -36,5 +29,3 @@ class CategoryContainer extends React.Component{
 }
 
 export default CategoryContainer
-
-{/* <FavList handleFilterCards={this.props.handleFilterCards} /> */}

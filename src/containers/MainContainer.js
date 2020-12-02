@@ -4,6 +4,7 @@ import CardContainer from './CardContainer'
 import { Container } from 'semantic-ui-react'
 import GameContainer from './GameContainer'
 import { Button } from 'semantic-ui-react'
+import FavList from '../components/FavList'
 
 class MainContainer extends React.Component {
 
@@ -13,7 +14,8 @@ class MainContainer extends React.Component {
         gameState: false,
         categories: [],
         filteredCategories: [],
-        showCategoryForm: false
+        showCategoryForm: false,
+        favList: false
     }
 
     fetchCategories = () => {
@@ -58,13 +60,14 @@ class MainContainer extends React.Component {
                     filteredCards: []
                 })
             }))
-      }
+    }
 
 
     handleFilterCards = (filteredCategory) => {
         this.setState({
             filteredCategory: filteredCategory,
-            filteredCards: filteredCategory.cards
+            filteredCards: filteredCategory.cards,
+            favList: false
         })
     }
 
@@ -78,6 +81,15 @@ class MainContainer extends React.Component {
         this.setState(prevState => {
             return ({gameState: !prevState.gameState})
         })
+    }
+
+    handleFavCardList =() => {
+        this.setState(prevState => {
+            return ({
+                favList: !prevState.favList,
+                filteredCategory: ""
+                })
+    })
     }
 
     handleDeleteCard = (cardId) => {
@@ -126,14 +138,17 @@ class MainContainer extends React.Component {
             <Container>
                 <div className="main-container">
                     {this.state.gameState ?
+
                     <GameContainer cards={this.state.filteredCards} handleGameState={this.handleGameState}/>
                     :
                     <>
-                        <CategoryContainer handleFilterCards={this.handleFilterCards} categories={this.state.categories} filteredCategories={this.state.filteredCategories} showCategoryForm={this.state.showCategoryForm} filteredCategory={this.filteredCategory} handleCategorySearchChange={this.handleCategorySearchChange} handleShowCategoryForm={this.handleShowCategoryForm} addCategory={this.addCategory}/>
+                        <CategoryContainer favList={this.state.favList} handleFavCardList={this.handleFavCardList} handleFilterCards={this.handleFilterCards} categories={this.state.categories} filteredCategories={this.state.filteredCategories} showCategoryForm={this.state.showCategoryForm} filteredCategory={this.filteredCategory} handleCategorySearchChange={this.handleCategorySearchChange} handleShowCategoryForm={this.handleShowCategoryForm} addCategory={this.addCategory}/>
                         {this.state.filteredCategory ? <CardContainer filteredCategory={this.state.filteredCategory} filteredCards={this.state.filteredCards} handleAddCard={this.handleAddCard} handleGameState={this.handleGameState} handleDeleteCard={this.handleDeleteCard} handleDeleteCategory={this.handleDeleteCategory} jwt={this.props.jwt}/> : null}
+
+                        {this.state.favList ? <FavList handleDeleteCard={this.handleDeleteCard} user={this.props.user} jwt={this.props.jwt}/> : null}
                     </>
                     }
-                    
+
                 </div>
             </Container>
         )

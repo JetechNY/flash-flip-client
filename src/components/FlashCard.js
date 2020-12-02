@@ -18,7 +18,7 @@ class FlashCard extends React.Component{
     }
 
     handleStarCard = () => {
-        
+
         fetch(`http://localhost:3000/cards/${this.props.card.id}`, {
                 method: 'PATCH',
                 headers: {
@@ -32,7 +32,7 @@ class FlashCard extends React.Component{
             .then(card => {this.setState({isStarred: card.is_starred})})
             .catch(err => console.log(err))
 
-    } 
+    }
 
     localHandleDeleteCard = () => {
         this.props.handleDeleteCard(this.props.card.id)
@@ -50,8 +50,8 @@ class FlashCard extends React.Component{
                 <Card onClick={this.clickFlip} className="card">
                     <h3>{ this.state.flipped ? this.props.card.term : this.props.card.definition }</h3>
                 </Card>
-                <Button onClick={this.handleStarCard}>{this.state.isStarred ? "Unstar Card": "Star Card"}</Button>
-                {this.props.parentIsGameContainer ? null : <Button onClick={this.localHandleDeleteCard}>Delete Card</Button> }
+                {this.props.parentIsFavList ? null : <Button onClick={this.handleStarCard}>{this.state.isStarred ? "Unstar Card": "Star Card"}</Button>}
+                {this.props.parentIsGameContainer || this.props.parentIsFavList ? null : <Button onClick={this.localHandleDeleteCard}>Delete Card</Button> }
             </>
         )
     }

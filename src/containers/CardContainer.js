@@ -8,11 +8,19 @@ class CardContainer extends React.Component{
 
     state = {
         showCardForm: false,
-        searchTerm: ''
+        searchTerm: '',
+        numCardsAdded: 0
+    }
+
+    handleAddCardsCardContainer = (newCard) => {
+        this.props.handleAddCard(newCard)
+        this.setState(prevState => {
+            return ({numCardsAdded: prevState.numCardsAdded += 1})
+        })
     }
 
     renderCards = () => {
-        return this.filterCardsFromSearch().map(card=> <FlashCard key={card.id} card={card} handleDeleteCard={this.props.handleDeleteCard} jwt={this.props.jwt}/>)
+        return this.filterCardsFromSearch().map(card=> <FlashCard key={card.id} card={card} handleDeleteCard={this.props.handleDeleteCard} jwt={this.props.jwt} />)
     }
 
     handleShowCardForm = () => {
@@ -38,13 +46,13 @@ class CardContainer extends React.Component{
             <div className="card-container">
                 <h1>{this.props.filteredCategory.name} Flash Cards</h1>
                 <Button onClick={this.handleShowCardForm}>{this.state.showCardForm ? "Cancel" : "Add Flash Card"}</Button>
-                {this.state.showCardForm ? 
-                <CardForm filteredCategoryId={this.props.filteredCategory.id} handleAddCard={this.props.handleAddCard} handleShowCardForm={this.handleShowCardForm}/> 
-                : 
+                {this.state.showCardForm ?
+                <CardForm filteredCategoryId={this.props.filteredCategory.id} handleAddCard={this.handleAddCardsCardContainer} handleShowCardForm={this.handleShowCardForm}/>
+                :
                 <>
                     <CardSearch searchTerm={this.state.searchTerm} handleCardSearchChange={this.handleCardSearchChange} />
                     <Button onClick={this.props.handleGameState} >Study</Button>
-                    <Button onClick={this.localHandleDeleteCategory} >Delete Category</Button>    
+                    <Button onClick={this.localHandleDeleteCategory} >Delete Category</Button>
                     {this.renderCards()}
                 </>
                 }
