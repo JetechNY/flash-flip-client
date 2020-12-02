@@ -9,11 +9,32 @@ class CardContainer extends React.Component{
     state = {
         showCardForm: false,
         searchTerm: '',
-        numCardsAdded: 0
+        numCardsAdded: 0,
+        cards: []
+    }
+
+    fetchCards = () => {
+        fetch(`http://localhost:3000/categories/${this.props.filteredCategory.id}`, {
+            method: 'GET',
+            headers: {Authorization: `Bearer ${this.props.jwt}`}
+        })
+        .then(resp => resp.json())
+        .then(category => {
+            this.setState({cards: category.cards})
+        })
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.filteredCategory.id !== this.props.filteredCategory.id && this.props.filteredCategory.id) this.fetchCards()
+    }
+
+    componentDidMount() {
+        this.fetchCards()
     }
 
     handleAddCardsCardContainer = (newCard) => {
         this.props.handleAddCard(newCard)
+        this.fetchCards()
         this.setState(prevState => {
             return ({numCardsAdded: prevState.numCardsAdded += 1})
         })
@@ -30,7 +51,7 @@ class CardContainer extends React.Component{
     }
 
     filterCardsFromSearch = () => {
-        return this.props.filteredCards.filter(card => card.term.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || card.definition.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+        return this.state.cards.filter(card => card.term.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || card.definition.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
     }
 
     handleCardSearchChange = (searchTerm) => {

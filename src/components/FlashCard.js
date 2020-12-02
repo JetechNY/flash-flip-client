@@ -50,8 +50,8 @@ class FlashCard extends React.Component{
                 <Card onClick={this.clickFlip} className="card">
                     <h3>{ this.state.flipped ? this.props.card.term : this.props.card.definition }</h3>
                 </Card>
-                {this.props.parentIsFavList ? null : <Button onClick={this.handleStarCard}>{this.state.isStarred ? "Unstar Card": "Star Card"}</Button>}
-                {this.props.parentIsGameContainer || this.props.parentIsFavList ? null : <Button onClick={this.localHandleDeleteCard}>Delete Card</Button> }
+                <Button onClick={this.handleStarCard}>{this.state.isStarred ? "Unstar Card": "Star Card"}</Button>
+                {this.props.parentIsGameContainer ? null : <Button onClick={this.localHandleDeleteCard}>Delete Card</Button> }
             </>
         )
     }

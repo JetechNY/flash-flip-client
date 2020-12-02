@@ -98,7 +98,7 @@ class GameContainer extends React.Component {
                         :
                         <>
                             <div className="game-container-card-holder">
-                                <FlashCard key={currentCard.id} card={currentCard} parentIsGameContainer={true} />
+                                <FlashCard key={currentCard.id} card={currentCard} parentIsGameContainer={true} jwt={this.props.jwt} />
                             </div>
                             <div className="game-buttons">
                                 <Button className="right-button" onClick={this.handleRight}>RIGHT</Button>

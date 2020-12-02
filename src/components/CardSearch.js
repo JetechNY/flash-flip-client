@@ -11,7 +11,6 @@ const CardSearch = props => {
         <div className="ui icon input">
           <input value={props.searchTerm} onChange={localHandleCardSearchChange} className="prompt"/>
           <i className="search icon" />
-          <br/>
         </div>
       </div>
     )

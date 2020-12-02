@@ -41,8 +41,8 @@ class FavList extends React.Component{
 
     render () {
         return (
-            <div classname="fav-list-container">
-            {this.renderCards()}
+            <div className="fav-list-container">
+                {this.renderCards()}
             </div>
         )
     }
