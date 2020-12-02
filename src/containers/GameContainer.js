@@ -81,6 +81,7 @@ class GameContainer extends React.Component {
         return (
             <section className="game-container">
                 <section className="game-container-left-section">
+                    <Button onClick={this.props.handleGameState}>Exit Study Session</Button>
                     <div className="timer">
                         timer: 00:00sec
                     </div>
@@ -90,26 +91,21 @@ class GameContainer extends React.Component {
                         <p>skipped: {this.state.skippedCounter}</p>
                     </div>
                 </section>
-                <section className="game-container-center-section">
+                <section className="game-container-right-section">
                     {this.state.currentCardIndex+1 > this.state.shuffledCards.length ? 
                         <div className="game-container-card-holder-over">
                             {this.reviewGame()}
                         </div>
                         :
-                        <>
-                            <div className="game-container-card-holder">
-                                <FlashCard key={currentCard.id} card={currentCard} parentIsGameContainer={true} jwt={this.props.jwt} />
-                            </div>
+                        <div className="game-container-card-holder">
+                            <FlashCard key={currentCard.id} card={currentCard} parentIsGameContainer={true} jwt={this.props.jwt} />
                             <div className="game-buttons">
                                 <Button className="right-button" onClick={this.handleRight}>RIGHT</Button>
                                 <Button className="wrong-button" onClick={this.handleWrong}>WRONG</Button>
                                 <Button className="skip-button" onClick={this.handleSkipped}>SKIP</Button>
                             </div>
-                        </>
+                        </div>
                     }
-                </section>
-                <section className="game-container-right-section">
-                    <Button onClick={this.props.handleGameState}>Exit Study Session</Button>
                 </section>
             </section>
         )
