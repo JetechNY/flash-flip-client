@@ -83,7 +83,7 @@ class CardContainer extends React.Component{
                     {this.state.showCardForm ?
                     <CardForm filteredCategoryId={this.props.filteredCategory.id} handleAddCard={this.handleAddCardsCardContainer} handleShowCardForm={this.handleShowCardForm}/>
                     :
-                    this.renderCards()}
+                    this.state.cards ? this.renderCards() : <i class="sync icon"></i>}
                 </div>
             </div>
         )
