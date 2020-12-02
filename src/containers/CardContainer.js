@@ -66,18 +66,25 @@ class CardContainer extends React.Component{
     render () {
         return (
             <div className="card-container">
-                <h1>{this.props.filteredCategory.name} Flash Cards</h1>
-                <Button onClick={this.handleShowCardForm}>{this.state.showCardForm ? "Cancel" : "Add Flash Card"}</Button>
-                {this.state.showCardForm ?
-                <CardForm filteredCategoryId={this.props.filteredCategory.id} handleAddCard={this.handleAddCardsCardContainer} handleShowCardForm={this.handleShowCardForm}/>
-                :
-                <>
-                    <CardSearch searchTerm={this.state.searchTerm} handleCardSearchChange={this.handleCardSearchChange} />
-                    <Button onClick={this.props.handleGameState} >Study</Button>
-                    <Button onClick={this.localHandleDeleteCategory} >Delete Category</Button>
-                    {this.renderCards()}
-                </>
-                }
+                <div className="card-container-top">
+                    <div className="card-container-top-top">
+                        <h1>{this.props.filteredCategory.name} Flash Cards</h1>
+                        {this.state.showCardForm ? null : <Button id="delete-category-button" onClick={this.localHandleDeleteCategory}>Delete Category <i className="trash icon" /></Button>}
+                    </div>
+                    <div className="card-container-top-center">
+                        {this.state.showCardForm ? null : <CardSearch searchTerm={this.state.searchTerm} handleCardSearchChange={this.handleCardSearchChange} />}
+                    </div>
+                    <div className="card-container-top-bottom">
+                        <Button onClick={this.handleShowCardForm}>{this.state.showCardForm ? "Cancel" : <><i className="add icon" />Add Flash Card</>}</Button>
+                        {this.state.showCardForm ? null : <Button onClick={this.props.handleGameState}>Start Study Session</Button>}
+                    </div>
+                </div>
+                <div className="card-container-bottom">
+                    {this.state.showCardForm ?
+                    <CardForm filteredCategoryId={this.props.filteredCategory.id} handleAddCard={this.handleAddCardsCardContainer} handleShowCardForm={this.handleShowCardForm}/>
+                    :
+                    this.renderCards()}
+                </div>
             </div>
         )
     }
