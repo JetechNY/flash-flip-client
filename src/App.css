@@ -583,3 +583,7 @@ body {
   background-color: rgb(173, 96, 96);
   border-radius: 5px;
 }
+
+.field.category-form-submit {
+  display: inline-block;
+}
