@@ -40,7 +40,7 @@ class App extends React.Component {
     return (
       <section className="App">
         <BrowserRouter>
-          <Header loggedIn={!!this.state.jwt} handleLogout={this.handleLogout} />
+          <Header loggedIn={!!this.state.jwt} handleLogout={this.handleLogout} user={this.state.user}/>
           <Switch>
             <Route path="/categories">
               {!!this.state.jwt ? <MainContainer user={this.state.user} jwt={this.state.jwt}/> : <Redirect to="/login" />}

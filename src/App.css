@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-  margin-top: 2%;
+  margin-top: 4%;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -38,15 +38,34 @@ body {
 
 .navbar {
   display: flex;
-  flex-direction: row;
   margin-left: 2%;
+  justify-content: space-between;
+}
+
+.navbar-links {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.welcome-message {
+  flex: 0 1 auto;
+  margin-right: 3.5rem;
 }
 
 .navbar-link {
+  flex: 0 0 auto;
   display: flex;
   margin-left: 2%;
   color: inherit;
   text-decoration: inherit;
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+
+.navbar-link:hover {
+  color: rgb(34, 95, 228);
+  cursor: pointer;
 }
 
 .login-form-container {
