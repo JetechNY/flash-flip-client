@@ -410,6 +410,11 @@ body {
   text-align: center;
 }
 
+.game-stats h1 {
+  text-align: center;
+  font-size: 4em;
+}
+
 .game-container-right-section {
   flex: 1 0 auto;
   overflow-y: auto;
@@ -498,6 +503,7 @@ body {
 }
 
 .card-review-title {
+  font-family: RobotoThin;
   padding: 1rem 0px;
   color: white;
   background-color: rgb(150, 135, 54);

@@ -104,6 +104,8 @@ class GameContainer extends React.Component {
                         <p>right: {this.state.rightCounter}</p>
                         <p>wrong: {this.state.wrongCounter}</p>
                         <p>skipped: {this.state.skippedCounter}</p>
+                        {/* {this.state.currentCardIndex+1 > this.state.shuffledCards.length ? <h3 className="percent-right-header">Score</h3> : null} */}
+                        {this.state.currentCardIndex+1 > this.state.shuffledCards.length ? <h1 className="percent-right-num">{Math.round(this.state.rightCounter/this.state.shuffledCards.length * 100)}%</h1> : null}
                     </div>
                 </section>
                 <section className="game-container-right-section">
