@@ -19,16 +19,15 @@ class CategoryForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <br/>
+      <div className="category-form">
         <h3>Please add a Category!</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
-            <Form.Input fluid label="Name" placeholder="Category Name" name="name" value={this.state.name} onChange={this.handleChange}/>
+            <Form.Input fluid label="Category Name" placeholder="Category Name" name="name" value={this.state.name} onChange={this.handleChange}/>
           </Form.Group>
-          <Form.Button>Submit</Form.Button>
-          </Form>
-        <Button onClick={this.props.handleShowCategoryForm}>Cancel</Button>
+            <Form.Button className="category-form-submit">Submit</Form.Button>
+            <Button onClick={this.props.handleShowCategoryForm}>Cancel</Button>
+        </Form>
       </div>
     )
   }

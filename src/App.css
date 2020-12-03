@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-  margin-top: 4%;
+  margin-top: 2.5%;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -251,7 +251,7 @@ body {
   padding: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
-
+  flex: 1 0 100%;
 }
 
 .flash-card-buttons {
@@ -264,6 +264,7 @@ body {
 .flash-card-buttons > * {
   flex: 1 0 50%;
 }
+
 .flip-card {
   flex: 1 0 100%;
   background-color: transparent;
@@ -271,7 +272,11 @@ body {
   height: 10rem;
   perspective: 1000px;
   margin-bottom: .5rem;
+}
 
+#flip-card-game {
+  height: 18rem;
+  text-align: center;
 }
 
 .flip-card-inner {
@@ -304,6 +309,10 @@ body {
   word-wrap: break-word;
   overflow: auto;
   border-radius: 15px;
+}
+
+#flip-card-front-game, #flip-card-back-game {
+  padding-top: 8rem;
 }
 
 .flip-card-front {
@@ -470,18 +479,23 @@ body {
   border-width: .05em;
   border-color: rgba(0, 0, 0, 0.219);
   background-color: rgb(254, 254, 254);
-}
-
-.timer h3 {
   text-align: center;
 }
 
+.timer-component-display {
+  font-size: 2.5em;
+  padding-top: .5rem;
+  padding-bottom: 1rem;
+}
+
 .game-stats {
+  padding-top: 2rem;
   flex-grow: 1;
   border: solid;
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.219);
   background-color: rgb(254, 254, 254);
+  font-size: 1.3rem;
 }
 
 .game-stats h3 {
@@ -509,8 +523,10 @@ body {
 
 .game-container-right-section-session {
   flex: 0 0 auto;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 7rem;
+  padding-right: 7rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .game-container-right-section-review {
@@ -519,7 +535,7 @@ body {
 }
 
 .game-buttons {
-  margin-left: 5.6rem;
+  text-align: center;
 }
 
 .ui.card {
@@ -549,39 +565,39 @@ body {
   background-color:rgb(59, 97, 180);
 }
 
+.ui.button:focus{
+  font-family: RobotoThin;
+  color: white;
+  background-color:rgb(59, 97, 180);
+}
+
 .ui.button:hover {
   font-family: RobotoThin;
   color: white;
   background-color:rgb(37, 66, 128);
 }
 
-.ui.button:focus{
-  font-family: RobotoThin;
-  color: white;
-  background-color:rgb(37, 66, 128);
-}
-
-#delete-button, #wrong-button {
+#delete-button, #wrong-button, #timer-stop-button {
   background-color: rgb(173, 96, 96);
 }
 
-#delete-button:hover, #wrong-button:hover {
+#delete-button:focus, #wrong-button:focus, #timer-stop-button:focus {
+  background-color: rgb(173, 96, 96);
+}
+
+#delete-button:hover, #wrong-button:hover, #timer-stop-button:hover {
   background-color: rgb(131, 42, 42);
 }
 
-#delete-button:focus, #wrong-button:focus {
-  background-color: rgb(131, 42, 42);
-}
-
-#skip-button {
+#skip-button, #timer-reset-button {
   background-color: rgb(204, 185, 77);
 }
 
-#skip-button:hover {
-  background-color: rgb(150, 135, 54);
+#skip-button:focus, #timer-reset-button:focus {
+  background-color: rgb(204, 185, 77);
 }
 
-#skip-button:focus {
+#skip-button:hover, #timer-reset-button:hover {
   background-color: rgb(150, 135, 54);
 }
 
@@ -601,3 +617,6 @@ body {
   border-radius: 5px;
 }
 
+.field.category-form-submit {
+  display: inline-block;
+}
