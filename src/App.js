@@ -38,6 +38,25 @@ class App extends React.Component {
     window.localStorage.setItem("jwt", "")
   }
 
+
+  updateUserHandler = (userObj) => {
+    fetch(`http://localhost:3000/users/${this.state.user.id}`, {
+        method: "PATCH",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            Authorization: `Bearer ${this.state.jwt}`
+        },
+        body: JSON.stringify(userObj)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      this.setState({user: data})
+      window.localStorage.setItem("user", JSON.stringify(data))
+    })
+    .catch(err => console.log(err))
+}
+
   render () {
     return (
       <section className="App">
@@ -45,7 +64,7 @@ class App extends React.Component {
           <Header loggedIn={!!this.state.jwt} handleLogout={this.handleLogout} user={this.state.user}/>
           <Switch>
             <Route path="/profile">
-              {!!this.state.jwt ? <Profile user={this.state.user} jwt={this.state.jwt}/> : <Redirect to="/login" />}
+              {!!this.state.jwt ? <Profile user={this.state.user} jwt={this.state.jwt} updateUserHandler={this.updateUserHandler}/> : <Redirect to="/login" />}
             </Route>
             <Route path="/categories">
               {!!this.state.jwt ? <MainContainer user={this.state.user} jwt={this.state.jwt}/> : <Redirect to="/login" />}

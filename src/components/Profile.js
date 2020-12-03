@@ -23,37 +23,18 @@ class Profile extends React.Component {
         })
     }
 
-    submitHandler = (e) => {
+    localUpdateUserHandler = (e) => {
         e.preventDefault()
-        console.log("email props", this.state.email)
-        fetch(`http://localhost:3000/users/${this.props.user.id}`, {
-            method: "PATCH",
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                Authorization: `Bearer ${this.props.jwt}`
-            },
-            body: JSON.stringify({
-                username: this.state.username,
-                email: this.state.email,
-                password: this.state.password
-            })
-        })
-        .then(resp => resp.json())
-        .then(data => {console.log("return", data)})
-        .catch(err => console.log(err))
-        e.target.reset()
+        this.props.updateUserHandler(this.state)
     }
 
-
     render(){
-        console.log("orig props", this.props.user)
         return(
             <section className="profile-container">
                 <h1>Hello!</h1>
                 <h4>Please update your information below</h4>
                 <div className="edit-container">
-                    <form onSubmit={this.submitHandler} className="edit-form">
+                    <form onSubmit={this.localUpdateUserHandler} className="edit-form">
                         <div>
                         Enter a new Username:
                         <input type="text" name="username" placeholder="Enter a new Username" className="input-text" value={this.state.username} onChange={this.changeHandler}/>
@@ -68,7 +49,6 @@ class Profile extends React.Component {
                         </div>
                         <div>
                         <Button type="submit" name="submit" value="Update User Info" className="submit">Update User Info</Button>
-                        {/* <input type="submit" name="submit" value="Update User Info" className="submit"/> */}
                         </div>
                     </form>
                 </div>
