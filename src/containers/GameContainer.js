@@ -14,9 +14,22 @@ class GameContainer extends React.Component {
     }
 
     componentDidMount() {
-        let shuffledCards = this.shuffleCards(this.props.cards)
-        this.setState({shuffledCards: shuffledCards})
+        // let shuffledCards = this.shuffleCards(this.props.cards)
+        // this.setState({shuffledCards: shuffledCards})
+        this.fetchAndShuffleCards()
     }
+
+    fetchAndShuffleCards = () => {
+        fetch(`http://localhost:3000/categories/${this.props.filteredCategory.id}`, {
+            method: 'GET',
+            headers: {Authorization: `Bearer ${this.props.jwt}`}
+        })
+        .then(resp => resp.json())
+        .then(category => {
+            this.setState({shuffledCards: this.shuffleCards(category.cards)})
+        })
+    }
+
 
     shuffleCards = (cards) => {
 
@@ -44,7 +57,7 @@ class GameContainer extends React.Component {
             return ({
                 rightCounter: prevState.rightCounter += 1,
                 currentCardIndex: prevState.currentCardIndex += 1,
-                completedCards: [...prevState.completedCards, {...currentCard, right: true}]
+                completedCards: [...prevState.completedCards, {...currentCard, right: "Right"}]
             })
         })
     }
@@ -55,7 +68,7 @@ class GameContainer extends React.Component {
             return ({
                 wrongCounter: prevState.wrongCounter += 1,
                 currentCardIndex: prevState.currentCardIndex += 1,
-                completedCards: [...prevState.completedCards, {...currentCard, right: false}]
+                completedCards: [...prevState.completedCards, {...currentCard, right: "Wrong"}]
             })
         })
     }
@@ -102,9 +115,9 @@ class GameContainer extends React.Component {
                         <div className="game-container-right-section-session">
                             <FlashCard key={currentCard.id} card={currentCard} parentIsGameContainer={true} jwt={this.props.jwt} />
                             <div className="game-buttons">
-                                <Button className="right-button" onClick={this.handleRight}>RIGHT</Button>
-                                <Button className="wrong-button" onClick={this.handleWrong}>WRONG</Button>
-                                <Button className="skip-button" onClick={this.handleSkipped}>SKIP</Button>
+                                <Button id="right-button" onClick={this.handleRight}>RIGHT</Button>
+                                <Button id="wrong-button" onClick={this.handleWrong}>WRONG</Button>
+                                <Button id="skip-button" onClick={this.handleSkipped}>SKIP</Button>
                             </div>
                         </div>
                     }

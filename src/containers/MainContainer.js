@@ -139,7 +139,7 @@ class MainContainer extends React.Component {
                 <div className="main-container">
                     {this.state.gameState ?
 
-                    <GameContainer cards={this.state.filteredCards} handleGameState={this.handleGameState} jwt={this.props.jwt}/>
+                    <GameContainer filteredCategory={this.state.filteredCategory} cards={this.state.filteredCards} handleGameState={this.handleGameState} jwt={this.props.jwt}/>
                     :
                     <>
                         <CategoryContainer favList={this.state.favList} handleFavCardList={this.handleFavCardList} handleFilterCards={this.handleFilterCards} categories={this.state.categories} filteredCategories={this.state.filteredCategories} showCategoryForm={this.state.showCategoryForm} filteredCategory={this.filteredCategory} handleCategorySearchChange={this.handleCategorySearchChange} handleShowCategoryForm={this.handleShowCategoryForm} addCategory={this.addCategory}/>
