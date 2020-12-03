@@ -148,7 +148,7 @@ class MainContainer extends React.Component {
                         {this.state.favList ? <FavList handleDeleteCard={this.handleDeleteCard} user={this.props.user} jwt={this.props.jwt}/> : null}
                     </>
                     }
-
+                    {this.state.filteredCategory || this.state.favList ? null : <p className="select-category-holder">Select a category to get started!</p>}
                 </div>
             </Container>
         )

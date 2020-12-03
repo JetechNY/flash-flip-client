@@ -31,7 +31,8 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(209, 207, 207);
+  background-color: rgb(155, 150, 139);
+  color: white;
   text-align: center;
 }
 
@@ -303,6 +304,8 @@ body {
   flex-direction: column;
 }
 
+
+
 .category > * {
   border-style: solid;
   border-color: rgb(172, 172, 172);
@@ -317,7 +320,12 @@ body {
   padding-left: 1rem;
   padding-top: .3rem;
   padding-bottom: .3rem;
-  background-color: rgb(231, 230, 230);
+  background-color: rgb(254, 254, 254);
+}
+
+.category > *:hover {
+  color: white;
+  background-color: rgb(155, 150, 139);
 }
 
 .fav-list {
@@ -347,7 +355,7 @@ body {
   flex-wrap: wrap;
 }
 
-.fav-list-container > * {
+.fav-list-container > div {
   flex: 0 0 50%;
   display: inline-block;
   max-width: 50%;
@@ -432,4 +440,20 @@ body {
 .ui.card {
   border: solid;
   border-width: 1px;
+}
+
+.select-category-holder {
+  align-self: center;
+  margin: 0 auto;
+  font-size: 1.5em;
+}
+
+.new-card-form {
+  max-width: 100%;
+  flex-basis: 100%;
+}
+
+.new-card-form-content .ui.button {
+  margin-top: 1.8rem;
+
 }

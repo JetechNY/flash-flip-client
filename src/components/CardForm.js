@@ -33,17 +33,17 @@ class CardForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <br/>
-        <h3>Please add a Card!</h3>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths="equal">
-            <Form.Input fluid label="Term" placeholder="Term" name="term" value={this.state.term} onChange={this.handleChange}/>
-            <Form.Input fluid label="Definition" placeholder="Definition" name="definition"value={this.state.definition} onChange={this.handleChange} />
-          </Form.Group>
-          <Form.Button>Submit</Form.Button>
-          <br/>
-        </Form>
+      <div className="new-card-form">
+        <h3 className="new-card-form-header">Please add a Card!</h3>
+        <div className="new-card-form-content">
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group widths="equal">
+              <Form.Input fluid label="Term" placeholder="Term" name="term" value={this.state.term} onChange={this.handleChange}/>
+              <Form.Input fluid label="Definition" placeholder="Definition" name="definition"value={this.state.definition} onChange={this.handleChange} />
+              <Form.Button>Submit</Form.Button>
+            </Form.Group>
+          </Form>
+        </div>
       </div>
     )
   }
