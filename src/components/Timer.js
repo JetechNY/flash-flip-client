@@ -12,16 +12,18 @@ class Timer extends React.Component {
     }
 
     startTimer = () => {
-        this.setState({
-          timerOn: true,
-          timerTime: this.state.timerTime,
-          timerStart: Date.now() - this.state.timerTime
-        })
-        this.timer = setInterval(() => {
-          this.setState({
-            timerTime: Date.now() - this.state.timerStart
-          })
-        }, 10)
+        if (!this.state.timerOn) {
+            this.setState({
+              timerOn: true,
+              timerTime: 0,
+              timerStart: Date.now() - this.state.timerTime
+            })
+            this.timer = setInterval(() => {
+              this.setState({
+                timerTime: Date.now() - this.state.timerStart
+              })
+            }, 10)
+        }
     }
 
     stopTimer = () => {
@@ -31,9 +33,11 @@ class Timer extends React.Component {
 
     resetTimer = () => {
     this.setState({
+        timerOn: false,
         timerStart: 0,
         timerTime: 0
     })
+    clearInterval(this.timer)
     }
 
     render() {

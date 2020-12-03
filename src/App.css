@@ -447,6 +447,7 @@ body {
 }
 
 .game-stats {
+  padding-top: 2rem;
   flex-grow: 1;
   border: solid;
   border-width: 1px;
@@ -480,8 +481,9 @@ body {
 
 .game-container-right-section-session {
   flex: 0 0 auto;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  margin-top: 4rem;
+  padding-left: 7rem;
+  padding-right: 7rem;
 }
 
 .game-container-right-section-review {
@@ -520,13 +522,13 @@ body {
   background-color:rgb(59, 97, 180);
 }
 
-.ui.button:hover {
+.ui.button:focus{
   font-family: RobotoThin;
   color: white;
-  background-color:rgb(37, 66, 128);
+  background-color:rgb(59, 97, 180);
 }
 
-.ui.button:focus{
+.ui.button:hover {
   font-family: RobotoThin;
   color: white;
   background-color:rgb(37, 66, 128);
@@ -536,11 +538,11 @@ body {
   background-color: rgb(173, 96, 96);
 }
 
-#delete-button:hover, #wrong-button:hover, #timer-stop-button:hover {
-  background-color: rgb(131, 42, 42);
+#delete-button:focus, #wrong-button:focus, #timer-stop-button:focus {
+  background-color: rgb(173, 96, 96);
 }
 
-#delete-button:focus, #wrong-button:focus, #timer-stop-button:focus {
+#delete-button:hover, #wrong-button:hover, #timer-stop-button:hover {
   background-color: rgb(131, 42, 42);
 }
 
@@ -548,11 +550,11 @@ body {
   background-color: rgb(204, 185, 77);
 }
 
-#skip-button:hover, #timer-reset-button:hover {
-  background-color: rgb(150, 135, 54);
+#skip-button:focus, #timer-reset-button:focus {
+  background-color: rgb(204, 185, 77);
 }
 
-#skip-button:focus, #timer-reset-button:focus {
+#skip-button:hover, #timer-reset-button:hover {
   background-color: rgb(150, 135, 54);
 }
 
