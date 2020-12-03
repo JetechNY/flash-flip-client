@@ -15,8 +15,16 @@ class Profile extends React.Component {
         })
     }
 
+    componentDidMount = () =>{
+        this.setState({
+            username: this.props.user.username,
+            email: this.props.user.email
+        })
+    }
+
     submitHandler = (e) => {
         e.preventDefault()
+        console.log("email props", this.state.email)
         fetch(`http://localhost:3000/users/${this.props.user.id}`, {
             method: "PATCH",
             headers: {
