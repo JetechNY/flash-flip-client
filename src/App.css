@@ -122,8 +122,8 @@ body {
   margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
-  max-height: 600px;
-  max-width: 900px;
+  max-height: 800px;
+  max-width: auto;
   width: 95%;
   border-style: solid;
   border-width: 1px;
@@ -240,6 +240,7 @@ body {
   padding: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
+
 }
 
 .flash-card-buttons {
@@ -259,6 +260,7 @@ body {
   height: 10rem;
   perspective: 1000px;
   margin-bottom: .5rem;
+
 }
 
 .flip-card-inner {
@@ -269,6 +271,7 @@ body {
   transition: transform 0.6s;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 15px;
 }
 
 .flip-card:hover .flip-card-inner {
@@ -289,11 +292,13 @@ body {
   padding-bottom: 1rem;
   word-wrap: break-word;
   overflow: auto;
+  border-radius: 15px;
 }
 
 .flip-card-front {
   color: black;
-  background-color: rgb(254, 254, 254);
+  background-color: rgb(252, 252, 252);
+
 }
 
 .flip-card-back {
