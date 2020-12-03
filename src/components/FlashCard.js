@@ -64,7 +64,7 @@ class FlashCard extends React.Component{
                 </div>
                 <div className="flash-card-buttons">
                     <Button onClick={this.handleStarCard}>{this.state.isStarred ? <i className="star icon" />: <i className="star outline icon" />}</Button>
-                    {this.props.parentIsGameContainer ? null : <Button onClick={this.localHandleDeleteCard}><i className="trash icon" /></Button> }
+                    {this.props.parentIsGameContainer ? null : <Button id="delete-button" onClick={this.localHandleDeleteCard}><i className="trash icon" /></Button> }
                 </div>
             </div>
         )

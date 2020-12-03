@@ -31,7 +31,7 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(155, 150, 139);
+  background-color: rgb(59, 97, 180);
   color: white;
   text-align: center;
 }
@@ -304,8 +304,6 @@ body {
   flex-direction: column;
 }
 
-
-
 .category > * {
   border-style: solid;
   border-color: rgb(172, 172, 172);
@@ -456,4 +454,34 @@ body {
 .new-card-form-content .ui.button {
   margin-top: 1.8rem;
 
+}
+
+.ui.button {
+  font-family: RobotoThin;
+  color: white;
+  background-color:rgb(59, 97, 180);
+}
+
+.ui.button:hover {
+  font-family: RobotoThin;
+  color: white;
+  background-color:rgb(37, 66, 128);
+}
+
+.ui.button:focus{
+  font-family: RobotoThin;
+  color: white;
+  background-color:rgb(37, 66, 128);
+}
+
+#delete-button {
+  background-color: rgb(173, 96, 96);
+}
+
+#delete-button:hover {
+  background-color: rgb(131, 42, 42);
+}
+
+#delete-button:focus {
+  background-color: rgb(131, 42, 42);
 }
