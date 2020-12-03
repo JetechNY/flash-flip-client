@@ -53,12 +53,12 @@ class FlashCard extends React.Component{
         return(
             <div className="flash-card">
                 {this.props.parentIsGameContainer ? <h3 className={`card-review-title-${this.props.wonStatus}`}>{this.props.wonStatus}</h3>: null}
-                <div class="flip-card">
+                <div class="flip-card" id={this.props.parentIsGameContainer ? "flip-card-game" : "flip-card-card-container"}>
                     <div class="flip-card-inner">
-                        <div className ="flip-card-front">
+                        <div className ="flip-card-front" id={this.props.parentIsGameContainer ? "flip-card-front-game" : "flip-card-front-container"}>
                             <h3>{ this.props.card.term}</h3>
                         </div>
-                        <div className ="flip-card-back">
+                        <div className ="flip-card-back" id={this.props.parentIsGameContainer ? "flip-card-back-game" : "flip-card-back-container"}>
                             <h3>{ this.props.card.definition }</h3>
                         </div>
                     </div>

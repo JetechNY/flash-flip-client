@@ -240,7 +240,7 @@ body {
   padding: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
-
+  flex: 1 0 100%;
 }
 
 .flash-card-buttons {
@@ -253,6 +253,7 @@ body {
 .flash-card-buttons > * {
   flex: 1 0 50%;
 }
+
 .flip-card {
   flex: 1 0 100%;
   background-color: transparent;
@@ -260,7 +261,11 @@ body {
   height: 10rem;
   perspective: 1000px;
   margin-bottom: .5rem;
+}
 
+#flip-card-game {
+  height: 18rem;
+  text-align: center;
 }
 
 .flip-card-inner {
@@ -293,6 +298,10 @@ body {
   word-wrap: break-word;
   overflow: auto;
   border-radius: 15px;
+}
+
+#flip-card-front-game, #flip-card-back-game {
+  padding-top: 8rem;
 }
 
 .flip-card-front {
@@ -481,9 +490,10 @@ body {
 
 .game-container-right-section-session {
   flex: 0 0 auto;
-  margin-top: 4rem;
   padding-left: 7rem;
   padding-right: 7rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .game-container-right-section-review {
