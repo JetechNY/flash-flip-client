@@ -85,7 +85,7 @@ class GameContainer extends React.Component {
     }
 
     reviewGame = () => {
-        return this.state.completedCards.map(card => <FlashCard key={card.id} card={card} wonStatus={card.right} parentIsGameContainer={true}/>)
+        return this.state.completedCards.map(card => <FlashCard key={card.id} card={card} wonStatus={card.right} parentIsGameContainer={true} jwt={this.props.jwt}/>)
     }
 
     render() {

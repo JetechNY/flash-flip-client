@@ -475,6 +475,11 @@ body {
   padding-right: 5rem;
 }
 
+.game-container-right-section-review {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .game-buttons {
   margin-left: 5.6rem;
 }
@@ -542,9 +547,16 @@ body {
   background-color: rgb(150, 135, 54);
 }
 
-.card-review-title {
+.card-review-title-Right {
   font-family: RobotoThin;
   padding: 1rem 0px;
   color: white;
-  background-color: rgb(150, 135, 54);
+  background-color: rgb(106, 158, 117);
+}
+
+.card-review-title-Wrong {
+  font-family: RobotoThin;
+  padding: 1rem 0px;
+  color: white;
+  background-color: rgb(173, 96, 96);
 }
