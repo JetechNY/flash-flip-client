@@ -3,7 +3,9 @@ import React from 'react'
 import MainContainer from './containers/MainContainer'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Profile from './components/Profile'
 import LoginForm from './components/LoginForm'
+
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 class App extends React.Component {
@@ -42,6 +44,9 @@ class App extends React.Component {
         <BrowserRouter>
           <Header loggedIn={!!this.state.jwt} handleLogout={this.handleLogout} user={this.state.user}/>
           <Switch>
+            <Route path="/profile">
+              {!!this.state.jwt ? <Profile user={this.state.user} jwt={this.state.jwt}/> : <Redirect to="/login" />}
+            </Route>
             <Route path="/categories">
               {!!this.state.jwt ? <MainContainer user={this.state.user} jwt={this.state.jwt}/> : <Redirect to="/login" />}
             </Route>
