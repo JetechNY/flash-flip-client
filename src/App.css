@@ -40,6 +40,7 @@ body {
   display: flex;
   margin-left: 2%;
   justify-content: space-between;
+  font-size: 15px;
 }
 
 .navbar-links {
@@ -84,13 +85,20 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+
 }
+
+
+
+
 
 .login-form-container input {
   margin-top: .5rem;
   margin-bottom: .5rem;
   border-width: 1px;
   padding: .2rem .1rem;
+  border-radius: 2px;
+
 }
 
 .login-form-container p {
@@ -109,6 +117,8 @@ body {
   font-family: RobotoThin;
   color: white;
   background-color:rgb(59, 97, 180);
+  border-radius: 2px;
+
 }
 
 .login-form-container button:hover {
@@ -122,8 +132,9 @@ body {
   margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
-  max-height: 800px;
-  max-width: auto;
+  max-height: 600px;
+  height: auto;
+  overflow: hidden;
   width: 95%;
   border-style: solid;
   border-width: 1px;
@@ -417,6 +428,28 @@ body {
   flex-direction: row;
 }
 
+.profile-container {
+  flex: 0 0 auto;
+  padding: 10px;
+  display: flex;
+  margin: 30px;
+  flex-direction: column;
+
+}
+
+.profile-container input {
+  margin: 2px;
+}
+
+.profile-container div {
+  margin: 1px;
+}
+
+.profile-container h1, h3{
+  padding: 0px;
+  margin: 0px;
+}
+
 .game-container-left-section {
   flex: 0 1 30%;
   display: flex;
@@ -567,3 +600,4 @@ body {
   background-color: rgb(173, 96, 96);
   border-radius: 5px;
 }
+
