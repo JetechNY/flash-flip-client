@@ -557,6 +557,7 @@ body {
   padding: 1rem 0px;
   color: white;
   background-color: rgb(106, 158, 117);
+  border-radius: 5px;
 }
 
 .card-review-title-Wrong {
@@ -564,4 +565,5 @@ body {
   padding: 1rem 0px;
   color: white;
   background-color: rgb(173, 96, 96);
+  border-radius: 5px;
 }
