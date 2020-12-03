@@ -75,8 +75,8 @@ class CardContainer extends React.Component{
                         {this.state.showCardForm ? null : <CardSearch searchTerm={this.state.searchTerm} handleCardSearchChange={this.handleCardSearchChange} />}
                     </div>
                     <div className="card-container-top-bottom">
-                        <Button onClick={this.handleShowCardForm}>{this.state.showCardForm ? "Cancel" : <><i className="add icon" />Add Flash Card</>}</Button>
                         {this.state.showCardForm ? null : <Button onClick={this.props.handleGameState}> <><i className="pencil alternate icon" /> Start Study Session</></Button>}
+                        <Button onClick={this.handleShowCardForm}>{this.state.showCardForm ? "Cancel" : <><i className="add icon" />Add Flash Card</>}</Button>
                     </div>
                 </div>
                 <div className="card-container-bottom">
