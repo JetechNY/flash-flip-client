@@ -56,7 +56,7 @@ class Profile extends React.Component {
                     <form onSubmit={this.submitHandler} className="edit-form">
                         <div>
                         Enter a new Username:
-                        <input type="text" name="username" placeholder="Enter a new Username" className="input-text" value={this.state.name} onChange={this.changeHandler}/>
+                        <input type="text" name="username" placeholder="Enter a new Username" className="input-text" value={this.state.username} onChange={this.changeHandler}/>
                         </div>
                         <div>
                         Enter a new Email:
