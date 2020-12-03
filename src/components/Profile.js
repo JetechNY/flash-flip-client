@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
+import { Button } from 'semantic-ui-react'
 
 class Profile extends React.Component {
 
@@ -49,7 +50,7 @@ class Profile extends React.Component {
         console.log("orig props", this.props.user)
         return(
             <section className="profile-container">
-                <h1>Hello, {this.props.user.username}.</h1>
+                <h1>Hello!</h1>
                 <h4>Please update your information below</h4>
                 <div className="edit-container">
                     <form onSubmit={this.submitHandler} className="edit-form">
@@ -66,7 +67,8 @@ class Profile extends React.Component {
                         <input type="password" name="password" placeholder="Enter a new Password" className="input-text" value={this.state.password} onChange={this.changeHandler}/>
                         </div>
                         <div>
-                        <input type="submit" name="submit" value="Update User Info" className="submit"/>
+                        <Button type="submit" name="submit" value="Update User Info" className="submit">Update User Info</Button>
+                        {/* <input type="submit" name="submit" value="Update User Info" className="submit"/> */}
                         </div>
                     </form>
                 </div>

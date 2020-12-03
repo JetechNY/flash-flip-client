@@ -88,10 +88,6 @@ body {
 
 }
 
-
-
-
-
 .login-form-container input {
   margin-top: .5rem;
   margin-bottom: .5rem;
@@ -452,6 +448,7 @@ body {
 
 .profile-container div {
   margin: 1px;
+  margin-bottom: 15px;
 }
 
 .profile-container h1, h3{
