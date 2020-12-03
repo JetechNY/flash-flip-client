@@ -83,9 +83,11 @@ class GameContainer extends React.Component {
                 <section className="game-container-left-section">
                     <Button onClick={this.props.handleGameState}>Exit Study Session</Button>
                     <div className="timer">
-                        timer: 00:00sec
+                        <h3>Timer</h3>
+                        <p>00:00sec</p>
                     </div>
                     <div className="game-stats">
+                        <h3>Study Stats</h3>
                         <p>right: {this.state.rightCounter}</p>
                         <p>wrong: {this.state.wrongCounter}</p>
                         <p>skipped: {this.state.skippedCounter}</p>
@@ -93,11 +95,11 @@ class GameContainer extends React.Component {
                 </section>
                 <section className="game-container-right-section">
                     {this.state.currentCardIndex+1 > this.state.shuffledCards.length ? 
-                        <div className="game-container-card-holder-over">
+                        <div className="game-container-right-section-review">
                             {this.reviewGame()}
                         </div>
                         :
-                        <div className="game-container-card-holder">
+                        <div className="game-container-right-section-session">
                             <FlashCard key={currentCard.id} card={currentCard} parentIsGameContainer={true} jwt={this.props.jwt} />
                             <div className="game-buttons">
                                 <Button className="right-button" onClick={this.handleRight}>RIGHT</Button>

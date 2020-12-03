@@ -87,6 +87,7 @@ body {
   width: 95%;
   border-style: solid;
   border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.219);
   padding: 10px;
 
 }
@@ -96,6 +97,7 @@ body {
   margin-right: 2rem;
   border-style: solid;
   border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.219);
   padding: 10px;
   font-family: RobotoThin;
   font-size: 15px;
@@ -109,6 +111,7 @@ body {
   flex-grow: 1;
   border-style: solid;
   border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.219);
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 2rem;
@@ -129,7 +132,7 @@ body {
 }
 
 .card-container::-webkit-scrollbar-thumb {
-  background-color: rgb(83, 83, 83);
+  background-color: rgba(0, 0, 0, 0.219);
   outline: 1px solid black;
 }
 
@@ -243,7 +246,12 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   vertical-align: middle;
-  padding-top: 3rem;
+  padding-top: 4rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  word-wrap: break-word;
+  font-size: 3vw;
 }
 
 .flip-card-front {
@@ -273,7 +281,7 @@ body {
 }
 
 .category-container::-webkit-scrollbar-thumb {
-  background-color: rgb(83, 83, 83);
+  background-color: rgba(0, 0, 0, 0.219);
   outline: 1px solid black;
 }
 
@@ -306,7 +314,7 @@ body {
 
 .category > * {
   border-style: solid;
-  border-color: rgb(172, 172, 172);
+  border-color: rgba(0, 0, 0, 0.219);
   color: black;
   font-size: 1.3em;
   border-width: 1px;
@@ -332,6 +340,7 @@ body {
   margin-right: 1rem;
   border-style: solid;
   border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.219);
   padding: 1rem;
   overflow-y: auto;
   flex-basis: 100%;
@@ -343,7 +352,7 @@ body {
 }
 
 .fav-list::-webkit-scrollbar-thumb {
-  background-color: rgb(83, 83, 83);
+  background-color: rgba(0, 0, 0, 0.219);
   outline: 1px solid black;
 }
 
@@ -373,7 +382,7 @@ body {
 }
 
 .game-container::-webkit-scrollbar-thumb {
-  background-color: rgb(83, 83, 83);
+  background-color: rgba(0, 0, 0, 0.219);
   outline: 1px solid black;
 }
 
@@ -385,55 +394,55 @@ body {
 }
 
 .game-container-left-section * {
+  font-family: RobotoThin;
+  flex: 0 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 5px;
 }
 
-.game-container-right-section {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: row;
-}
-
-.game-container-right-section * {
-  flex: 0 0 auto;
-}
-
-.game-container-card-holder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1 0 auto;
-}
-
-.game-buttons {
-  flex: 1 0 auto;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.game-container-card-holder-over {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  overflow-y: auto;
-}
-
-.game-container-card-holder-over * {
-  flex: 1 0 auto;
-}
-
 .timer {
   border: solid;
   border-width: .05em;
+  border-color: rgba(0, 0, 0, 0.219);
+  background-color: rgb(254, 254, 254);
+}
+
+.timer h3 {
+  text-align: center;
 }
 
 .game-stats {
+  flex-grow: 1;
   border: solid;
   border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.219);
+  background-color: rgb(254, 254, 254);
 }
+
+.game-stats h3 {
+  text-align: center;
+}
+
+.game-container-right-section {
+  flex: 0 0 70%;
+  align-content: center;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.game-buttons {
+
+}
+
+.game-container-right-section-review {
+
+}
+
+.game-container-right-section-review {
+
+}
+
 
 .ui.card {
   border: solid;

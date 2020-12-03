@@ -55,10 +55,10 @@ class FlashCard extends React.Component{
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div className ="flip-card-front">
-                            <h2>{ this.props.card.term}</h2>
+                            <h3>{ this.props.card.term}</h3>
                         </div>
                         <div className ="flip-card-back">
-                            <h2>{ this.props.card.definition }</h2>
+                            <h3>{ this.props.card.definition }</h3>
                         </div>
                     </div>
                 </div>
