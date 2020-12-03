@@ -1,5 +1,6 @@
 import React from 'react'
 import FlashCard from '../components/FlashCard'
+import Timer from '../components/Timer'
 import { Button } from 'semantic-ui-react'
 
 class GameContainer extends React.Component {
@@ -96,8 +97,7 @@ class GameContainer extends React.Component {
                 <section className="game-container-left-section">
                     <Button onClick={this.props.handleGameState}>Exit Study Session</Button>
                     <div className="timer">
-                        <h3>Timer</h3>
-                        <p>00:00sec</p>
+                        <Timer />
                     </div>
                     <div className="game-stats">
                         <h3>Study Stats</h3>
@@ -117,9 +117,9 @@ class GameContainer extends React.Component {
                         <div className="game-container-right-section-session">
                             <FlashCard key={currentCard.id} card={currentCard} parentIsGameContainer={true} jwt={this.props.jwt} />
                             <div className="game-buttons">
-                                <Button id="right-button" onClick={this.handleRight}>RIGHT</Button>
-                                <Button id="wrong-button" onClick={this.handleWrong}>WRONG</Button>
-                                <Button id="skip-button" onClick={this.handleSkipped}>SKIP</Button>
+                                <Button id="right-button" onClick={this.handleRight}>Right</Button>
+                                <Button id="wrong-button" onClick={this.handleWrong}>Wrong</Button>
+                                <Button id="skip-button" onClick={this.handleSkipped}>Skip</Button>
                             </div>
                         </div>
                     }
